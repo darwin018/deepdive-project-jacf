@@ -1,0 +1,234 @@
+.container {
+    padding: 2rem;
+    font-family: 'Outfit', sans-serif;
+    background-color: #0B0B0B;
+    /* Carbon Black */
+    min-height: 100vh;
+    color: #FFFFFF;
+    /* Pure White */
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.title {
+    font-size: 1.5rem;
+    color: #00D2BE;
+    /* Petronas Teal */
+    margin: 0;
+    font-weight: 700;
+}
+
+.addButton {
+    background-color: #00D2BE;
+    /* Petronas Teal */
+    color: #000000;
+    /* Deep Black Text */
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    font-weight: 700;
+}
+
+.addButton:hover {
+    background-color: #00B3A4;
+    /* Dark Teal Hover */
+}
+
+.tableContainer {
+    background-color: #1C1C1C;
+    /* Graphite */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    border: 1px solid #3A3A3A;
+    /* Gunmetal Gray */
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #3A3A3A;
+    color: #FFFFFF;
+}
+
+.table th {
+    background-color: #0B0B0B;
+    /* Carbon Black */
+    color: #00D2BE;
+    /* Petronas Teal */
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.table td {
+    color: #B5B5B5;
+    /* Light Gray */
+}
+
+.categoryImage {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #3A3A3A;
+}
+
+.editButton,
+.deleteButton {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.editButton {
+    background-color: #00D2BE;
+    /* Petronas Teal */
+    color: #000000;
+    /* Black Text */
+}
+
+.editButton:hover {
+    background-color: #00B3A4;
+}
+
+.deleteButton {
+    background-color: #EF4444;
+    /* Standard Red */
+    color: white;
+}
+
+.deleteButton:hover {
+    background-color: #DC2626;
+}
+
+/* Modal Styles */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    background-color: #1C1C1C;
+    /* Graphite */
+    padding: 2.5rem;
+    border-radius: 12px;
+    width: 500px;
+    max-width: 95%;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+    border: 1px solid #3A3A3A;
+    color: #FFFFFF;
+}
+
+.modal h2 {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    color: #00D2BE;
+    /* Petronas Teal */
+    border-bottom: 1px solid #3A3A3A;
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.formGroup {
+    margin-bottom: 1.5rem;
+}
+
+.formGroup label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #B5B5B5;
+    /* Light Gray */
+    font-weight: 500;
+}
+
+.formGroup input[type="text"],
+.formGroup input[type="file"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #3A3A3A;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #2A2A2A;
+    /* Dark Silver */
+    color: #FFFFFF;
+    transition: border-color 0.3s;
+}
+
+.formGroup input:focus {
+    border-color: #00D2BE;
+    /* Petronas Teal */
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 210, 190, 0.2);
+}
+
+.modalActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    border-top: 1px solid #3A3A3A;
+    padding-top: 2rem;
+    margin-top: 1rem;
+}
+
+.cancelButton,
+.confirmButton {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.cancelButton {
+    background-color: transparent;
+    color: #B5B5B5;
+    border: 1px solid #3A3A3A;
+}
+
+.cancelButton:hover {
+    background-color: #2A2A2A;
+    color: #FFFFFF;
+}
+
+.confirmButton {
+    background-color: #00D2BE;
+    /* Petronas Teal */
+    color: #000000;
+    /* Black Text */
+}
+
+.confirmButton:hover {
+    background-color: #00B3A4;
+}

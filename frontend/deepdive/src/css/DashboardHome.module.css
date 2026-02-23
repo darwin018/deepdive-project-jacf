@@ -1,0 +1,172 @@
+.dashboardHomeContainer {
+    padding: 1rem;
+    color: #FAFAFA;
+    /* Off White */
+    font-family: 'Outfit', sans-serif;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.pageTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #FAFAFA;
+}
+
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.statCard {
+    background-color: #1A1A1A;
+    /* Slightly lighter than Carbon Black */
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border: 1px solid #333;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    cursor: default;
+}
+
+.statCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+    border-color: #555;
+}
+
+.statIcon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+}
+
+.statIcon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.statInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.statInfo h3 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #A0A0A0;
+    /* Light gray for label */
+    margin: 0 0 0.5rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.statValue {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+    color: #FAFAFA;
+}
+
+/* Card Specific Colors */
+.blueCard .statIcon {
+    background-color: rgba(37, 99, 235, 0.15);
+    /* Elegant Blue with opacity */
+    color: #3B82F6;
+}
+
+.blueCard:hover {
+    border-color: #2563EB;
+}
+
+.greenCard .statIcon {
+    background-color: rgba(16, 185, 129, 0.15);
+    /* Emerald Green */
+    color: #10B981;
+}
+
+.greenCard:hover {
+    border-color: #059669;
+}
+
+.yellowCard .statIcon {
+    background-color: rgba(245, 158, 11, 0.15);
+    /* Amber */
+    color: #F59E0B;
+}
+
+.yellowCard:hover {
+    border-color: #D97706;
+}
+
+.orangeCard .statIcon {
+    background-color: rgba(249, 115, 22, 0.15);
+    /* Orange */
+    color: #F97316;
+}
+
+.orangeCard:hover {
+    border-color: #EA580C;
+}
+
+.redCard .statIcon {
+    background-color: rgba(239, 68, 68, 0.15);
+    /* Red */
+    color: #EF4444;
+}
+
+.redCard:hover {
+    border-color: #DC2626;
+}
+
+.purpleCard .statIcon {
+    background-color: rgba(139, 92, 246, 0.15);
+    /* Purple */
+    color: #8B5CF6;
+}
+
+.purpleCard:hover {
+    border-color: #7C3AED;
+}
+
+.loading,
+.error {
+    text-align: center;
+    padding: 3rem;
+    font-size: 1.2rem;
+    color: #A0A0A0;
+}
+
+.error {
+    color: #EF4444;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .statsGrid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .statValue {
+        font-size: 1.5rem;
+    }
+}

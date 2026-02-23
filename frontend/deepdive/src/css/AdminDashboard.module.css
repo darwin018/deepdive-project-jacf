@@ -1,0 +1,23 @@
+.dashboardContainer {
+    display: flex;
+    min-height: 100vh;
+    background-color: #0B0B0B;
+    /* Carbon Black */
+    font-family: 'Outfit', sans-serif;
+    color: #FFFFFF;
+    /* Pure White */
+}
+
+.contentWrapper {
+    display: flex;
+    width: 100%;
+}
+
+.mainContent {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+    height: 100vh;
+    background-color: #0B0B0B;
+    box-sizing: border-box;
+}

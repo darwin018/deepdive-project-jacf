@@ -1,0 +1,457 @@
+.container {
+    padding: 2rem;
+    font-family: 'Outfit', sans-serif;
+    background-color: #0B0B0B;
+    /* Carbon Black - Dark Theme */
+    min-height: 100vh;
+    color: #FFFFFF;
+    padding-bottom: 100px;
+}
+
+.tableWrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #1C1C1C;
+    /* Graphite */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    border: 1px solid #3A3A3A;
+}
+
+.productTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.productTable th {
+    background-color: #0B0B0B;
+    /* Carbon Black */
+    color: #00D2BE;
+    /* Petronas Teal */
+    font-weight: 600;
+    text-align: left;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #3A3A3A;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.productTable td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #3A3A3A;
+    vertical-align: middle;
+    color: #FFFFFF;
+}
+
+.productRow:last-child td {
+    border-bottom: none;
+}
+
+.productRow:hover {
+    background-color: #2A2A2A;
+    /* Dark Silver hover */
+}
+
+/* Image Column */
+.imageHeader {
+    width: 80px;
+    text-align: center;
+}
+
+.imageCell {
+    width: 80px;
+}
+
+.productImageWrapper {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #0B0B0B;
+    border: 1px solid #3A3A3A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.productImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Name Column */
+.nameCell {
+    font-weight: 500;
+}
+
+.productName {
+    margin: 0;
+    font-size: 1rem;
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+/* Price Columns */
+.priceCell {
+    width: 200px;
+}
+
+.offerPrice {
+    font-weight: 700;
+    color: #00D2BE;
+    /* Petronas Teal */
+    font-size: 1rem;
+}
+
+.actualPrice {
+    color: #00D2BE;
+    /* Light Gray */
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+/* Action Column */
+.actionHeader {
+    text-align: right;
+}
+
+.actionCell {
+    width: 200px;
+    text-align: right;
+}
+
+.addToCartButton {
+    background-color: #ffffff;
+    /* Petronas Teal */
+    color: #000000;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.5rem;
+    padding: 0;
+    overflow: hidden;
+}
+
+.addToCartButton:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.cartIcon {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+}
+
+
+
+.quantityControls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.8rem;
+}
+
+.qtyButton {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background-color: #00D2BE;
+    /* Standard Red */
+    color: #000000;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.qtyButton:hover {
+    background-color: #00B3A4;
+}
+
+.qtyInput {
+    background-color: #2A2A2A;
+    border: 1px solid #3A3A3A;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    min-width: 40px;
+    text-align: center;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+.removeCartItem {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #3A3A3A;
+    background-color: #1C1C1C;
+    border-radius: 50%;
+    color: #EF4444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+    transition: all 0.2s;
+}
+
+.removeCartItem:hover {
+    background-color: #1c1c1c00;
+}
+
+/* Floating Cart */
+.floatingCart {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #FFFFFF;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    z-index: 1000;
+    width: 90%;
+    max-width: 500px;
+    justify-content: space-between;
+}
+
+.cartInfo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #000000;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.checkoutButton {
+    background-color: #00D2BE;
+    color: #000000;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.checkoutButton:hover {
+    background-color: #00B3A4;
+}
+
+@media (max-width: 768px) {
+
+    .productTable th,
+    .productTable td {
+        padding: 0.8rem;
+    }
+
+    .imageCell,
+    .imageHeader {
+        width: 60px;
+    }
+
+    .priceCell {
+        width: auto;
+    }
+
+    .actionCell {
+        width: auto;
+    }
+
+    .qtyButton {
+        width: 28px;
+        height: 28px;
+        font-size: 1rem;
+    }
+}
+
+/* Modal Styles */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    backdrop-filter: blur(5px);
+}
+
+.modalContent {
+    background-color: #1C1C1C;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    border: 1px solid #3A3A3A;
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh;
+}
+
+.modalHeader {
+    padding: 1.5rem;
+    border-bottom: 1px solid #3A3A3A;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modalHeader h2 {
+    margin: 0;
+    color: #00D2BE;
+    font-size: 1.5rem;
+}
+
+.closeButton {
+    background: none;
+    border: none;
+    color: #FFFFFF;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.closeButton:hover {
+    color: #EF4444;
+}
+
+.modalBody {
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+.checkoutTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.checkoutTable th {
+    text-align: left;
+    padding: 0.8rem;
+    color: #888;
+    border-bottom: 1px solid #3A3A3A;
+    font-size: 0.9rem;
+}
+
+.checkoutTable td {
+    padding: 0.8rem;
+    border-bottom: 1px solid #2A2A2A;
+    color: #FFFFFF;
+}
+
+.checkoutTable tr:last-child td {
+    border-bottom: none;
+}
+
+.totalLabel {
+    text-align: right;
+    font-weight: 700;
+    padding-top: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.grandTotal {
+    font-weight: 700;
+    color: #00D2BE;
+    font-size: 1.2rem;
+    padding-top: 1.5rem;
+}
+
+.modalFooter {
+    padding: 1.5rem;
+    border-top: 1px solid #3A3A3A;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.finalCheckoutButton {
+    background-color: #00D2BE;
+    color: #000000;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+}
+
+.savingsAmount {
+    font-weight: 700;
+    color: #4ADE80;
+    /* Green */
+    font-size: 1.2rem;
+    padding-top: 1.5rem;
+}
+
+.totalActualPrice {
+    font-weight: 700;
+    color: #9CA3AF;
+    /* Gray-400 */
+    font-size: 1.1rem;
+    padding-top: 1.5rem;
+    text-decoration: line-through;
+}
+
+/* Filter Styles */
+.filterContainer {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filterSelect {
+    background-color: #1C1C1C;
+    color: #FFFFFF;
+    border: 1px solid #3A3A3A;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+    min-width: 200px;
+    font-family: 'Outfit', sans-serif;
+    transition: all 0.2s;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2300D2BE' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+}
+
+.filterSelect:focus {
+    border-color: #00D2BE;
+    box-shadow: 0 0 0 2px rgba(0, 210, 190, 0.2);
+}
+
+.filterSelect option {
+    background-color: #1C1C1C;
+    color: #FFFFFF;
+    padding: 10px;
+}

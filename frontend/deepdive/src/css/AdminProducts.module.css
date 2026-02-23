@@ -1,0 +1,326 @@
+.container {
+    padding: 2rem;
+    font-family: 'Outfit', sans-serif;
+    background-color: #0B0B0B;
+    /* Carbon Black */
+    min-height: 100vh;
+    color: #FFFFFF;
+    /* Pure White */
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.title {
+    font-size: 1.5rem;
+    color: #00D2BE;
+    /* Petronas Teal */
+    margin: 0;
+}
+
+.addButton {
+    background-color: #00D2BE;
+    /* Petronas Teal */
+    color: #000000;
+    /* Black Text */
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    font-weight: 700;
+}
+
+.addButton:hover {
+    background-color: #00B3A4;
+    /* Dark Teal Hover */
+}
+
+.tableContainer {
+    background-color: #1C1C1C;
+    /* Graphite */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    border: 1px solid #3A3A3A;
+    /* Gunmetal Gray */
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #3A3A3A;
+    color: #FFFFFF;
+    /* Pure White */
+}
+
+.table th {
+    background-color: #0B0B0B;
+    /* Carbon Black */
+    color: #00D2BE;
+    /* Petronas Teal */
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.table td {
+    color: #B5B5B5;
+    /* Light Gray */
+}
+
+.categoryImage {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #3A3A3A;
+}
+
+.editButton,
+.deleteButton {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.editButton {
+    background-color: #00D2BE;
+    /* Petronas Teal */
+    color: #000000;
+    /* Black Text */
+}
+
+.editButton:hover {
+    background-color: #00B3A4;
+}
+
+.deleteButton {
+    background-color: #EF4444;
+    /* Standard Red */
+    color: white;
+}
+
+.deleteButton:hover {
+    background-color: #DC2626;
+}
+
+/* Modal Styles */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    background-color: #1C1C1C;
+    /* Graphite */
+    padding: 2.5rem;
+    border-radius: 16px;
+    width: 600px;
+    /* Reduced width preserved */
+    max-width: 90%;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    border: 1px solid #3A3A3A;
+    color: #FFFFFF;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal h2 {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    color: #00D2BE;
+    /* Petronas Teal */
+    border-bottom: 2px solid #3A3A3A;
+    padding-bottom: 0.8rem;
+    font-size: 1.5rem;
+    letter-spacing: 0.5px;
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.formGroup label {
+    margin-bottom: 0.5rem;
+    color: #B5B5B5;
+    /* Light Gray */
+    font-weight: 500;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.formGroup input[type="text"],
+.formGroup input[type="number"],
+.formGroup select,
+.formGroup textarea {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    /* Reduced padding preserved */
+    border: 1px solid #3A3A3A;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    background-color: #2A2A2A;
+    /* Dark Silver */
+    color: #FFFFFF;
+    transition: all 0.3s;
+}
+
+.formGroup textarea {
+    height: 60px;
+    /* Reduced height preserved */
+    resize: vertical;
+}
+
+/* Specific field adjustments */
+.shortInput {
+    width: 50% !important;
+    /* Force width reduction preserved */
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+    border-color: #00D2BE;
+    /* Petronas Teal */
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 210, 190, 0.2);
+    background-color: #3A3A3A;
+}
+
+/* Custom File Input Styling */
+.fileInput {
+    padding: 0.6rem;
+    background-color: #2A2A2A;
+    border: 1px dashed #3A3A3A;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #B5B5B5;
+}
+
+.fileInput::file-selector-button {
+    background-color: #3A3A3A;
+    color: #FFFFFF;
+    padding: 0.4rem 0.8rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 1rem;
+    transition: background-color 0.2s;
+}
+
+.fileInput::file-selector-button:hover {
+    background-color: #4A4A4A;
+}
+
+.fullWidth {
+    grid-column: 1 / -1;
+}
+
+.modalActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    border-top: 1px solid #3A3A3A;
+    padding-top: 2rem;
+    margin-top: 2rem;
+}
+
+.cancelButton,
+.confirmButton {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.cancelButton {
+    background-color: transparent;
+    color: #B5B5B5;
+    border: 1px solid #3A3A3A;
+}
+
+.cancelButton:hover {
+    background-color: #2A2A2A;
+    color: #FFFFFF;
+    border-color: #00D2BE;
+}
+
+.confirmButton {
+    background-color: #00D2BE;
+    /* Petronas Teal */
+    color: #000000;
+    /* Black Text */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.confirmButton:hover {
+    background-color: #00B3A4;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Category Filter specific styles */
+.filterSelect {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 0.8rem 3rem 0.8rem 1.2rem;
+    border-radius: 6px;
+    border: 1px solid #3A3A3A;
+    font-size: 0.95rem;
+    background-color: #1C1C1C;
+    color: #FFFFFF;
+    cursor: pointer;
+    min-width: 200px;
+
+    /* Custom Arrow - updated stroke color to Pure White */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.2em;
+}
+
+.filterSelect:focus {
+    border-color: #00D2BE;
+    outline: none;
+}
