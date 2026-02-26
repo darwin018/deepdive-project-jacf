@@ -41,11 +41,11 @@
     display: flex;
     align-items: center;
     padding: 0.8rem 1rem;
-    color: #B5B5B5;
+    color: #ffffff;
     /* Light Gray */
     text-decoration: none;
     border-radius: 6px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     transition: all 0.3s ease;
 }
 
@@ -57,6 +57,83 @@
     /* Petronas Teal */
     border-left: 3px solid #00D2BE;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.menu li a.logoutBtn:hover {
+    background-color: transparent;
+    color: #EF4444;
+    border-color: #EF4444;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+        border-right: none;
+        border-bottom: 1px solid #3A3A3A;
+    }
+
+    .logo {
+        margin-bottom: 0;
+        font-size: 1.2rem;
+    }
+
+    .menu {
+        flex-direction: row;
+        flex: 1;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 0;
+        overflow-x: auto;
+    }
+
+    .menu li a {
+        padding: 0.5rem 0.8rem;
+        white-space: nowrap;
+    }
+
+    .logoutSection {
+        padding-top: 0;
+        margin-top: 0;
+        border-top: none;
+        padding-left: 1rem;
+        border-left: 1px solid #3A3A3A;
+    }
+
+    .logoutBtn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 0.5rem;
+    }
+
+    .menu {
+        width: 100%;
+        justify-content: flex-start;
+        padding-bottom: 0.5rem;
+    }
+
+    .logoutSection {
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid #3A3A3A;
+        padding-top: 1rem;
+        padding-left: 0;
+        display: flex;
+        justify-content: center;
+    }
 }
 
 .logoutSection {

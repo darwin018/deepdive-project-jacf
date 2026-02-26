@@ -12,6 +12,7 @@ const CheckoutForm = () => {
     const [formData, setFormData] = useState({
         name: '',
         whatsapp: '',
+        email: '',
         shippingAddress: '',
         permanentAddress: ''
     });
@@ -26,21 +27,40 @@ const CheckoutForm = () => {
     const generatePDF = (orderData, orderId) => {
         const doc = new jsPDF();
         
+        // Page width for centering/right-aligning
+        const pageWidth = doc.internal.pageSize.getWidth();
+        
         // Header
         doc.setFontSize(20);
-        doc.text("Order Receipt", 14, 22);
+        const title = "Order Receipt";
+        const titleWidth = doc.getTextWidth(title);
+        doc.text(title, (pageWidth - titleWidth) / 2, 22);
         
-        doc.setFontSize(12);
-        doc.text(`Order ID: #${orderId}`, 14, 32);
-        doc.text(`Date: ${new Date().toLocaleDateString()}`, 14, 38);
+        // Format Date to dd/mm/yyyy
+        const today = new Date();
+        const dd = String(today.getDate()).padStart(2, '0');
+        const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+        const yyyy = today.getFullYear();
+        const formattedDate = `${dd}/${mm}/${yyyy}`;
         
-        // Customer Info
+        // Customer Info (Left Side) & Order Info (Right Side) parallel
+        // Start Y position for this block
+        const startY = 40;
+        
         doc.setFontSize(14);
-        doc.text("Customer Details", 14, 50);
+        doc.text("Customer Details", 14, startY);
         doc.setFontSize(11);
-        doc.text(`Name: ${orderData.name}`, 14, 58);
-        doc.text(`WhatsApp: ${orderData.whatsapp_number}`, 14, 64);
-        doc.text(`Shipping Address: ${orderData.shipping_address}`, 14, 70);
+        doc.text(`Name: ${orderData.name}`, 14, startY + 8);
+        doc.text(`Email: ${orderData.customer_email}`, 14, startY + 14);
+        doc.text(`WhatsApp: ${orderData.whatsapp_number}`, 14, startY + 20);
+        doc.text(`Shipping Address: ${orderData.shipping_address}`, 14, startY + 26);
+
+        // Order ID and Date (Right Side, Parallel to Customer Details)
+        doc.setFontSize(12);
+        const orderIdText = `Order ID: #${orderId}`;
+        const dateText = `Date: ${formattedDate}`;
+        doc.text(orderIdText, pageWidth - 14 - doc.getTextWidth(orderIdText), startY + 8);
+        doc.text(dateText, pageWidth - 14 - doc.getTextWidth(dateText), startY + 14);
         
         // Products Table
         const tableColumn = ["Product", "Quantity", "Actual Price", "Offer Price", "Total"];
@@ -72,10 +92,22 @@ const CheckoutForm = () => {
         
         // Totals
         const finalY = doc.lastAutoTable.finalY || 85;
+        const actualPriceTotal = orderData.grand_total + orderData.total_savings;
+        
         doc.setFontSize(12);
-        doc.text(`Total Savings: Rs. ${orderData.total_savings.toFixed(2)}`, 14, finalY + 10);
+        const actualTotalText = `Actual Price Total: Rs. ${actualPriceTotal.toFixed(2)}`;
+        doc.text(actualTotalText, pageWidth - 14 - doc.getTextWidth(actualTotalText), finalY + 10);
+        
+        const offerTotalText = `Total Amount Saved: Rs. ${orderData.total_savings.toFixed(2)}`;
+        doc.text(offerTotalText, pageWidth - 14 - doc.getTextWidth(offerTotalText), finalY + 18);
+        
+        // Add a line above grand total for neatness
+        doc.setLineWidth(0.5);
+        doc.line(pageWidth - 70, finalY + 22, pageWidth - 14, finalY + 22);
+
         doc.setFontSize(14);
-        doc.text(`Grand Total: Rs. ${orderData.grand_total.toFixed(2)}`, 14, finalY + 18);
+        const grandTotalText = `Grand Total: Rs. ${orderData.grand_total.toFixed(2)}`;
+        doc.text(grandTotalText, pageWidth - 14 - doc.getTextWidth(grandTotalText), finalY + 30);
         
         doc.save(`receipt_${orderId}.pdf`);
     };
@@ -95,6 +127,7 @@ const CheckoutForm = () => {
 
         const orderData = {
             name: formData.name,
+            customer_email: formData.email,
             whatsapp_number: formData.whatsapp,
             shipping_address: formData.shippingAddress,
             permanent_address: formData.permanentAddress,
@@ -143,6 +176,18 @@ const CheckoutForm = () => {
                             id="name"
                             name="name"
                             value={formData.name}
+                            onChange={handleChange}
+                            required
+                            className={styles.input}
+                        />
+                    </div>
+                    <div className={styles.formGroup}>
+                        <label htmlFor="email">Email Address</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={formData.email}
                             onChange={handleChange}
                             required
                             className={styles.input}

@@ -10,3 +10,4 @@ bcrypt==4.0.1
 pydantic
 email-validator
 python-multipart
+fpdf2

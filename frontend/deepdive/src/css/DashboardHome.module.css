@@ -20,7 +20,7 @@
 }
 
 .statCard {
-    background-color: #1A1A1A;
+    background-color: #272727;
     /* Slightly lighter than Carbon Black */
     border-radius: 12px;
     padding: 1.5rem;
@@ -62,7 +62,7 @@
 .statInfo h3 {
     font-size: 0.9rem;
     font-weight: 500;
-    color: #A0A0A0;
+    color: #ffffff;
     /* Light gray for label */
     margin: 0 0 0.5rem 0;
     text-transform: uppercase;
@@ -161,9 +161,15 @@
     }
 }
 
+@media (max-width: 1024px) {
+    .statsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
     .statsGrid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: 1fr;
     }
 
     .statValue {

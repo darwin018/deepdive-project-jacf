@@ -17,6 +17,8 @@ const AdminLogin = () => {
             });
             console.log('Login Success:', response.data);
             alert(`Login Successful! Welcome ${response.data.username}`);
+            localStorage.setItem('isAdminLoggedIn', 'true');
+            localStorage.setItem('adminUsername', response.data.username);
             navigate('/dashboard');
         } catch (error) {
             console.error('Login Failed:', error);

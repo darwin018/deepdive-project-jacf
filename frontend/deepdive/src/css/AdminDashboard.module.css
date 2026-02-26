@@ -21,3 +21,15 @@
     background-color: #0B0B0B;
     box-sizing: border-box;
 }
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .contentWrapper {
+        flex-direction: column;
+    }
+
+    .mainContent {
+        height: auto;
+        padding: 1rem;
+    }
+}

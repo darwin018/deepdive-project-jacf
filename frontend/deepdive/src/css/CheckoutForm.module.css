@@ -108,3 +108,17 @@
 .submitButton:hover {
     background-color: #00B3A4;
 }
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .formWrapper {
+        padding: 1.5rem;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+}

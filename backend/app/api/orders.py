@@ -16,6 +16,7 @@ router = APIRouter(
 def create_order(order: schemas_order.OrderCreate, background_tasks: BackgroundTasks, db: Session = Depends(get_db)):
     # Create Order
     db_order = models_order.Order(
+        customer_email=order.customer_email,
         name=order.name,
         whatsapp_number=order.whatsapp_number,
         shipping_address=order.shipping_address,
@@ -64,7 +65,7 @@ def read_orders(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     return orders
 
 @router.put("/{order_id}/status", response_model=schemas_order.Order)
-def update_order_status(order_id: int, status_update: schemas_order.OrderStatusUpdate, db: Session = Depends(get_db)):
+def update_order_status(order_id: int, status_update: schemas_order.OrderStatusUpdate, background_tasks: BackgroundTasks, db: Session = Depends(get_db)):
     db_order = db.query(models_order.Order).filter(models_order.Order.id == order_id).first()
     if db_order is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Order not found")
@@ -72,6 +73,11 @@ def update_order_status(order_id: int, status_update: schemas_order.OrderStatusU
     db_order.status = status_update.status
     db.commit()
     db.refresh(db_order)
+    
+    # Trigger customer email notification
+    if db_order.customer_email:
+        background_tasks.add_task(utils.send_order_status_update_email, db_order, status_update.status)
+        
     return db_order
 
 @router.put("/{order_id}/payment-status/", response_model=schemas_order.Order)

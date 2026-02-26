@@ -20,6 +20,7 @@ class OrderItem(OrderItemBase):
         from_attributes = True
 
 class OrderBase(BaseModel):
+    customer_email: str
     name: str
     whatsapp_number: str
     shipping_address: str

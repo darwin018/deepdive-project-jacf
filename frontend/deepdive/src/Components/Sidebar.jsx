@@ -1,8 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from '../css/Sidebar.module.css';
 
 const Sidebar = () => {
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        localStorage.removeItem('isAdminLoggedIn');
+        localStorage.removeItem('adminUsername');
+        navigate('/admin');
+    };
+
     return (
         <aside className={styles.sidebar}>
             <div className={styles.logo}>Admin Panel</div>
@@ -13,7 +21,7 @@ const Sidebar = () => {
                 <li><Link to="/dashboard/orders">Orders</Link></li>
             </ul>
             <div className={styles.logoutSection}>
-                <Link to="/admin" className={styles.logoutBtn}>Log out</Link>
+                <button onClick={handleLogout} className={styles.logoutBtn}>Log out</button>
             </div>
         </aside>
     );

@@ -6,6 +6,7 @@ import AdminDashboard from './Components/AdminDashboard'
 import Categories from './Components/Categories'
 import Products from './Components/Products'
 import CheckoutForm from './Components/CheckoutForm'
+import ProtectedRoute from './Components/ProtectedRoute'
 
 const Layout = () => {
   return (
@@ -27,7 +28,9 @@ function App() {
           <Route path="checkout" element={<CheckoutForm />} />
         </Route>
         <Route path="/admin" element={<AdminLogin />} />
-        <Route path="/dashboard/*" element={<AdminDashboard />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/dashboard/*" element={<AdminDashboard />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   )

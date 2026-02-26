@@ -10,7 +10,7 @@ const Orders = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     
     const statusOptions = ["Pending", "Order Taken", "Dispatched", "Delivered", "Cancelled"];
-    const paymentOptions = ["Pending", "Paid", "Failed", "Refunded"];
+    const paymentOptions = ["Pending", "Paid"];
 
     useEffect(() => {
         const fetchOrders = async () => {
@@ -77,6 +77,7 @@ const Orders = () => {
                             <tr>
                                 <th>Order ID</th>
                                 <th>Customer Name</th>
+                                <th>Email</th>
                                 <th>Number</th>
                                 <th>View Details</th>
                                 <th>Order Status</th>
@@ -88,6 +89,7 @@ const Orders = () => {
                                 <tr key={order.id}>
                                     <td>#{order.id}</td>
                                     <td>{order.name}</td>
+                                    <td>{order.customer_email}</td>
                                     <td>{order.whatsapp_number}</td>
                                     <td>
                                         <button 
@@ -141,6 +143,7 @@ const Orders = () => {
                             <div className={styles.customerInfo}>
                                 <h3>Customer Details</h3>
                                 <p><strong>Name:</strong> {selectedOrder.name}</p>
+                                <p><strong>Email:</strong> {selectedOrder.customer_email}</p>
                                 <p><strong>WhatsApp:</strong> {selectedOrder.whatsapp_number}</p>
                                 <p><strong>Shipping Address:</strong> {selectedOrder.shipping_address}</p>
                                 <p><strong>Permanent Address:</strong> {selectedOrder.permanent_address}</p>

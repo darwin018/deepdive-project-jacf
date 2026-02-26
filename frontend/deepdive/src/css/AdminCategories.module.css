@@ -47,7 +47,7 @@
     /* Graphite */
     border-radius: 8px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
+    overflow-x: auto;
     border: 1px solid #3A3A3A;
     /* Gunmetal Gray */
 }
@@ -231,4 +231,25 @@
 
 .confirmButton:hover {
     background-color: #00B3A4;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .table th,
+    .table td {
+        padding: 0.8rem;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+
+    .addButton {
+        width: 100%;
+    }
 }
