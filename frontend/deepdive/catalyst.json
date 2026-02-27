@@ -1,5 +1,15 @@
 {
   "build": {
     "node_version": "20.19.0"
-  }
+  },
+  "slate": [
+    {
+      "name": "crackers",
+      "source": "D:\\deepdive-project\\frontend\\deepdive\\crackers"
+    },
+    {
+      "name": "frontend",
+      "source": "D:\\deepdive-project\\frontend\\deepdive\\frontend"
+    }
+  ]
 }

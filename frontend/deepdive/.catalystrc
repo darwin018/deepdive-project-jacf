@@ -1,0 +1,54 @@
+{
+  "defaults": {
+    "project": 2,
+    "env": 1
+  },
+  "actives": {
+    "project": 2,
+    "env": 1
+  },
+  "projects": [
+    {
+      "idx": 1,
+      "id": "30656000000011033",
+      "name": "Project-Rainfall",
+      "domain": {
+        "id": "50039331265",
+        "name": "project-rainfall-60066304184.development"
+      },
+      "timezone": "Asia/Kolkata",
+      "env": [
+        {
+          "idx": 1,
+          "id": "60066304184",
+          "name": "Development",
+          "type": 3
+        },
+        {
+          "idx": 2,
+          "id": "50039337935",
+          "name": "Production",
+          "type": 1
+        }
+      ]
+    },
+    {
+      "idx": 2,
+      "id": "30656000000011308",
+      "name": "demo-project",
+      "domain": {
+        "id": "50039367885",
+        "name": "demo-project-60066304184.development"
+      },
+      "timezone": "Asia/Kolkata",
+      "env": [
+        {
+          "idx": 1,
+          "id": "60066304184",
+          "name": "Development",
+          "type": 3
+        }
+      ]
+    }
+  ]
+}
