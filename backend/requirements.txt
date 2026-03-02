@@ -1,16 +1,16 @@
-# txt
-# fastapi
-# uvicorn
-# gunicorn
-# sqlalchemy
-# psycopg2-binary
-# python-dotenv
-# passlib[bcrypt]
-# bcrypt==4.0.1
-# pydantic
-# email-validator
-# python-multipart
-# fpdf2
+txt
+fastapi
+uvicorn
+gunicorn
+sqlalchemy
+psycopg2-binary
+python-dotenv
+passlib[bcrypt]
+bcrypt==4.0.1
+pydantic
+email-validator
+python-multipart
+fpdf2
 fastapi==0.115.0
 uvicorn==0.30.0
 gunicorn==23.0.0
