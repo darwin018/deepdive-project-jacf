@@ -16,7 +16,7 @@ engine = create_engine(
 def index():
     return 'Web App with Python FastAPI!'
 
-listen_port = int(os.getenv('X_ZOHO_CATALYST_LISTEN_PORT', 9000))
+listen_port = int(os.getenv('X_ZOHO_CATALYST_LISTEN_PORT', 8000))
 
 @app.get("/test-db")
 def test_db():
