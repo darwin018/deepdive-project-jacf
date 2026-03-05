@@ -11,7 +11,7 @@ const AdminLogin = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('https://testapp-50039367885.development.catalystappsail.in/auth/login', {
+            const response = await axios.post('http://localhost:8000/auth/login', {
                 username,
                 password
             });

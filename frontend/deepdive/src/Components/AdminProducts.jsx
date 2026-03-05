@@ -27,7 +27,7 @@ const AdminProducts = () => {
 
     const fetchCategories = async () => {
         try {
-            const response = await fetch('https://testapp-50039367885.development.catalystappsail.in/categories/');
+            const response = await fetch('http://localhost:8000/categories/');
             if (response.ok) {
                 const data = await response.json();
                 setCategories(data);
@@ -38,7 +38,7 @@ const AdminProducts = () => {
     };
 
     const fetchProducts = async () => {
-        let url = 'https://testapp-50039367885.development.catalystappsail.in/products/';
+        let url = 'http://localhost:8000/products/';
         if (filterCategory) {
             url += `?category_id=${filterCategory}`;
         }
@@ -96,8 +96,8 @@ const AdminProducts = () => {
         if (image) formData.append('image', image);
 
         const url = editingProduct 
-            ? `https://testapp-50039367885.development.catalystappsail.in/products/${editingProduct.id}`
-            : 'https://testapp-50039367885.development.catalystappsail.in/products/';
+            ? `http://localhost:8000/products/${editingProduct.id}`
+            : 'http://localhost:8000/products/';
         
         const method = editingProduct ? 'PUT' : 'POST';
 
@@ -125,7 +125,7 @@ const AdminProducts = () => {
     const handleDeleteClick = async (id) => {
         if (window.confirm("Are you sure you want to delete this product?")) {
             try {
-                const response = await fetch(`https://testapp-50039367885.development.catalystappsail.in/products/${id}`, {
+                const response = await fetch(`http://localhost:8000/products/${id}`, {
                     method: 'DELETE',
                 });
 
@@ -193,7 +193,7 @@ const AdminProducts = () => {
                                     <td>
                                         {product.image_url && (
                                             <img 
-                                                src={`https://testapp-50039367885.development.catalystappsail.in${product.image_url}`} 
+                                                src={`http://localhost:8000${product.image_url}`} 
                                                 alt={product.name} 
                                                 className={styles.categoryImage} 
                                             />
