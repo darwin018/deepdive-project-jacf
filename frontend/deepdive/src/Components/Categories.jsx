@@ -12,7 +12,7 @@ const Categories = () => {
 
     const fetchCategories = async () => {
         try {
-            const response = await fetch('http://localhost:8000/categories/');
+            const response = await fetch('https://testapp-50039367885.development.catalystappsail.in/categories/');
             if (response.ok) {
                 const data = await response.json();
                 setCategories(data);
@@ -40,7 +40,7 @@ const Categories = () => {
                         style={{ cursor: 'pointer' }}
                     >
                         <img 
-                            src={`http://localhost:8000${category.image_url}`} 
+                            src={`https://testapp-50039367885.development.catalystappsail.in${category.image_url}`} 
                             alt={category.name} 
                             className={styles.image} 
                         />

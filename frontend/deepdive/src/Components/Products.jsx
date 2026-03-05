@@ -29,7 +29,7 @@ const Products = () => {
 
     const fetchProducts = async () => {
         try {
-            const response = await fetch('http://localhost:8000/products/');
+            const response = await fetch('https://testapp-50039367885.development.catalystappsail.in/products/');
             if (response.ok) {
                 const data = await response.json();
                 setProducts(data);
@@ -41,7 +41,7 @@ const Products = () => {
 
     const fetchCategories = async () => {
         try {
-            const response = await fetch('http://localhost:8000/categories/');
+            const response = await fetch('https://testapp-50039367885.development.catalystappsail.in/categories/');
             if (response.ok) {
                 const data = await response.json();
                 setCategories(data);
@@ -193,7 +193,7 @@ const Products = () => {
                                     <td className={styles.imageCell}>
                                         <div className={styles.productImageWrapper}>
                                             <img 
-                                                src={`http://localhost:8000${product.image_url}`} 
+                                                src={`https://testapp-50039367885.development.catalystappsail.in${product.image_url}`} 
                                                 alt={product.name} 
                                                 className={styles.productImage} 
                                             />

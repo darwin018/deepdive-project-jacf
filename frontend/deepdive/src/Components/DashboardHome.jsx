@@ -17,7 +17,7 @@ const DashboardHome = () => {
     useEffect(() => {
         const fetchOrders = async () => {
             try {
-                const response = await axios.get('http://127.0.0.1:8000/orders/');
+                const response = await axios.get('https://testapp-50039367885.development.catalystappsail.in/orders/');
                 const orders = response.data;
                 
                 let totalOrders = orders.length;

@@ -14,7 +14,7 @@ const AdminCategories = () => {
 
     const fetchCategories = async () => {
         try {
-            const response = await fetch('http://localhost:8000/categories/');
+            const response = await fetch('https://testapp-50039367885.development.catalystappsail.in/categories/');
             if (response.ok) {
                 const data = await response.json();
                 setCategories(data);
@@ -48,7 +48,7 @@ const AdminCategories = () => {
             }
 
             console.log("Sending fetch request...");
-            const response = await fetch('http://localhost:8000/categories/', {
+            const response = await fetch('https://testapp-50039367885.development.catalystappsail.in/categories/', {
                 method: 'POST',
                 body: formData,
             });
@@ -93,7 +93,7 @@ const AdminCategories = () => {
         }
 
         try {
-            const response = await fetch(`http://localhost:8000/categories/${editingCategory.id}`, {
+            const response = await fetch(`https://testapp-50039367885.development.catalystappsail.in/categories/${editingCategory.id}`, {
                 method: 'PUT',
                 body: formData,
             });
@@ -118,7 +118,7 @@ const AdminCategories = () => {
     const handleDeleteClick = async (id) => {
         if (window.confirm("Are you sure you want to delete this category?")) {
             try {
-                const response = await fetch(`http://localhost:8000/categories/${id}`, {
+                const response = await fetch(`https://testapp-50039367885.development.catalystappsail.in/categories/${id}`, {
                     method: 'DELETE',
                     body: JSON.stringify({id: id})
                 });
@@ -175,7 +175,7 @@ const AdminCategories = () => {
                                 <td>{category.id}</td>
                                 <td>
                                     <img 
-                                        src={`http://localhost:8000${category.image_url}`} 
+                                        src={`https://testapp-50039367885.development.catalystappsail.in${category.image_url}`} 
                                         alt={category.name} 
                                         className={styles.categoryImage} 
                                     />
