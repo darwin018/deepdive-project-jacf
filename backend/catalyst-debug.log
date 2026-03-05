@@ -1,0 +1,87 @@
+[debug] [2026-03-05T09:19:49.215Z] : 
+[debug] [2026-03-05T09:19:49.225Z] : ----------------------------------------------------------------------
+[debug] [2026-03-05T09:19:49.226Z] : Command:      D:\node.exe C:\Users\darwi\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\bin\catalyst.js deploy
+[debug] [2026-03-05T09:19:49.227Z] : CLI Version:  1.24.0
+[debug] [2026-03-05T09:19:49.227Z] : Platform:     win32
+[debug] [2026-03-05T09:19:49.228Z] : Node Version: v22.13.1
+[debug] [2026-03-05T09:19:49.228Z] : Time:         Thu Mar 05 2026 14:49:49 GMT+0530 (India Standard Time)
+[debug] [2026-03-05T09:19:49.228Z] : ----------------------------------------------------------------------
+[debug] [2026-03-05T09:19:49.228Z] : 
+[debug] [2026-03-05T09:19:50.833Z] : > authorizing via signed-in user option
+[debug] [2026-03-05T09:19:50.834Z] : > command requires scopes: ["ZohoCatalyst.projects.ALL","ZohoCatalyst.functions.ALL","ZohoCatalyst.webapp.ALL","ZohoCatalyst.appsail.Update"]
+[debug] [2026-03-05T09:19:50.872Z] : > refreshing access token <
+[debug] [2026-03-05T09:19:50.874Z] : >>>> HTTP REQUEST : POST https://accounts.zoho.in/oauth/v2/token 
+<request body omitted>
+
+[debug] [2026-03-05T09:19:51.182Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Thu, 05 Mar 2026 09:19:52 GMT","content-type":"application/json;charset=UTF-8","content-length":"2472","connection":"keep-alive","cache-control":"no-store","x-content-type-options":"nosniff","pragma":"no-cache","x-frame-options":"SAMEORIGIN","vary":"accept-encoding","content-language":"en-US","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[debug] [2026-03-05T09:19:51.198Z] : >>>> HTTP REQUEST : GET https://api.catalyst.zoho.in/baas/v1/project/30656000000011308 
+
+[debug] [2026-03-05T09:19:51.477Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Thu, 05 Mar 2026 09:19:52 GMT","content-type":"application/vnd.catalyst.v2+json","transfer-encoding":"chunked","connection":"keep-alive","x-content-type-options":"nosniff","cache-control":"private,no-cache,no-store,max-age=0,must-revalidate","pragma":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[debug] [2026-03-05T09:19:51.479Z] : >>>> HTTP REQUEST : GET https://api.catalyst.zoho.in/baas/v1/project/30656000000011308/environment 
+
+[debug] [2026-03-05T09:19:51.540Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Thu, 05 Mar 2026 09:19:52 GMT","content-type":"application/vnd.catalyst.v2+json","transfer-encoding":"chunked","connection":"keep-alive","x-content-type-options":"nosniff","cache-control":"private,no-cache,no-store,max-age=0,must-revalidate","pragma":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[debug] [2026-03-05T09:19:51.611Z] : >>>> HTTP REQUEST : PUT https://api.catalyst.zoho.in/baas/v1/project/30656000000011308/appsail/upsert 
+
+[debug] [2026-03-05T09:19:51.881Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Thu, 05 Mar 2026 09:19:53 GMT","content-type":"application/vnd.catalyst.v2+json","transfer-encoding":"chunked","connection":"keep-alive","x-content-type-options":"nosniff","cache-control":"private,no-cache,no-store,max-age=0,must-revalidate","pragma":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[info] [2026-03-05T09:19:51.883Z] : 
+[info] [2026-03-05T09:19:51.884Z] : 
+[info] [2026-03-05T09:19:51.884Z] :  >>>>>>>>>>>>>>> AppSail <<<<<<<<<<<<<
+[info] [2026-03-05T09:19:51.884Z] : 
+[info] [2026-03-05T09:19:51.885Z] : √ DEPLOYMENT SUCCESSFUL: testapp
+[info] [2026-03-05T09:19:51.886Z] : i APPSAIL URL          : https://testapp-50039367885.development.catalystappsail.in
+[info] [2026-03-05T09:19:51.886Z] : 
+[info] [2026-03-05T09:19:51.886Z] : √ Catalyst deploy complete!
+[info] [2026-03-05T09:19:51.887Z] : 
+[debug] [2026-03-05T09:19:51.887Z] : NO ERRORS REGISTERED
+[debug] [2026-03-05T09:19:51.888Z] : EXEC ENDED with event: deploy, message: success
+[debug] [2026-03-05T09:19:51.888Z] : TOTAL DURATION OF COMMAND EXEC : 1082
+[debug] [2026-03-05T09:19:51.919Z] : >>>> HTTP REQUEST : POST https://api.catalyst.zoho.in/baas/v1/cli/logs 
+<request body omitted>
+
+[debug] [2026-03-05T09:19:52.002Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Thu, 05 Mar 2026 09:19:53 GMT","content-length":"0","connection":"keep-alive","x-content-type-options":"nosniff","cache-control":"private,no-cache,no-store,max-age=0,must-revalidate","pragma":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[error] [2026-03-05T09:19:52.071Z] : × An unexpected error has occurred.
+[debug] [2026-03-05T09:19:52.071Z] : Error Stack: CatalystError: An unexpected error has occurred.
+    at exports.default (C:\Users\darwi\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\errorOut.js:13:17)
+    at process.<anonymous> (C:\Users\darwi\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\bin\catalyst.js:119:28)
+    at process.emit (node:events:524:28)
+    at process.processEmit [as emit] (C:\Users\darwi\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\signal-exit\index.js:199:34)
+    at emitUnhandledRejection (node:internal/process/promises:252:13)
+    at throwUnhandledRejectionsMode (node:internal/process/promises:388:19)
+    at processPromiseRejections (node:internal/process/promises:475:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:106:32)
+[debug] [2026-03-05T09:19:52.072Z] : Original Error: Error: Error: EBUSY: resource busy or locked, unlink 'D:\deepdive-project\backend\catalyst-debug.log'
+    at unlinkSync (node:fs:1953:11)
+    at _unlinkSync (node:internal/fs/rimraf:215:14)
+    at rimrafSync (node:internal/fs/rimraf:196:7)
+    at Object.rmSync (node:fs:1248:10)
+    at Object.removeSync (C:\Users\darwi\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\fs-extra\lib\remove\index.js:15:28)
+    at Object.deleteFile (C:\Users\darwi\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\util_modules\fs\lib\sync.js:78:31)
+    at process.<anonymous> (C:\Users\darwi\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\bin\catalyst.js:107:14)
+    at process.emit (node:events:536:35)
+    at process.processEmit [as emit] (C:\Users\darwi\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\signal-exit\index.js:191:37)
+    at process.exit (node:internal/process/per_thread:182:15) {
+  errno: -4082,
+  code: 'EBUSY',
+  syscall: 'unlink',
+  path: 'D:\\deepdive-project\\backend\\catalyst-debug.log'
+}
+    at exports.default (C:\Users\darwi\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\errorOut.js:15:23)
+    at process.<anonymous> (C:\Users\darwi\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\bin\catalyst.js:119:28)
+    at process.emit (node:events:524:28)
+    at process.processEmit [as emit] (C:\Users\darwi\AppData\Roaming\npm\node_modules\zcatalyst-cli\node_modules\signal-exit\index.js:199:34)
+    at emitUnhandledRejection (node:internal/process/promises:252:13)
+    at throwUnhandledRejectionsMode (node:internal/process/promises:388:19)
+    at processPromiseRejections (node:internal/process/promises:475:17)
+    at process.processTicksAndRejections (node:internal/process/task_queues:106:32)
+[debug] [2026-03-05T09:19:52.072Z] : Error Status: 500
+[info] [2026-03-05T09:19:52.072Z] : Kindly contact Catalyst support [support@zohocatalyst.com] if you need any further assistance
