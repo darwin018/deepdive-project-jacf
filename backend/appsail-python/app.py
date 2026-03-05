@@ -25,5 +25,4 @@ def test_db():
         result = connection.execute(text("SELECT 1"))
         return {"database": "connected", "result": result.scalar()}
 
-if __name__ == '__main__':
-    uvicorn.run(app, host='0.0.0.0', port=listen_port)
+
