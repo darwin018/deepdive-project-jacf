@@ -2,7 +2,7 @@
   "appsail": [
     {
       "source": "appsail-python",
-      "name": "testapp"
+      "name": "demoapp"
     }
   ]
 }
