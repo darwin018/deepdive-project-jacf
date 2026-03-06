@@ -1,3 +1,12 @@
-fastapi
-uvicorn
-gunicorn
+fastapi==0.115.0
+uvicorn==0.30.0
+gunicorn==23.0.0
+sqlalchemy==2.0.31
+psycopg2-binary==2.9.9
+python-dotenv==1.0.1
+passlib[bcrypt]
+bcrypt==4.0.1
+pydantic==2.8.2
+email-validator==2.1.1
+python-multipart==0.0.9
+fpdf2
