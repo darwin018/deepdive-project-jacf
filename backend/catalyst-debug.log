@@ -1,0 +1,69 @@
+[debug] [2026-03-06T07:48:49.431Z] : 
+[debug] [2026-03-06T07:48:49.433Z] : ----------------------------------------------------------------------
+[debug] [2026-03-06T07:48:49.433Z] : Command:      D:\node.exe C:\Users\darwi\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\bin\catalyst.js deploy
+[debug] [2026-03-06T07:48:49.433Z] : CLI Version:  1.24.0
+[debug] [2026-03-06T07:48:49.434Z] : Platform:     win32
+[debug] [2026-03-06T07:48:49.434Z] : Node Version: v22.13.1
+[debug] [2026-03-06T07:48:49.434Z] : Time:         Fri Mar 06 2026 13:18:49 GMT+0530 (India Standard Time)
+[debug] [2026-03-06T07:48:49.434Z] : ----------------------------------------------------------------------
+[debug] [2026-03-06T07:48:49.434Z] : 
+[debug] [2026-03-06T07:48:50.215Z] : > authorizing via signed-in user option
+[debug] [2026-03-06T07:48:50.215Z] : > command requires scopes: ["ZohoCatalyst.projects.ALL","ZohoCatalyst.functions.ALL","ZohoCatalyst.webapp.ALL","ZohoCatalyst.appsail.Update"]
+[debug] [2026-03-06T07:48:50.231Z] : >>>> HTTP REQUEST : GET https://api.catalyst.zoho.in/baas/v1/project/30656000000011308 
+
+[debug] [2026-03-06T07:48:50.494Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Fri, 06 Mar 2026 07:48:53 GMT","content-type":"application/vnd.catalyst.v2+json","transfer-encoding":"chunked","connection":"keep-alive","x-content-type-options":"nosniff","cache-control":"private,no-cache,no-store,max-age=0,must-revalidate","pragma":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[debug] [2026-03-06T07:48:50.498Z] : >>>> HTTP REQUEST : GET https://api.catalyst.zoho.in/baas/v1/project/30656000000011308/environment 
+
+[debug] [2026-03-06T07:48:50.560Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Fri, 06 Mar 2026 07:48:53 GMT","content-type":"application/vnd.catalyst.v2+json","transfer-encoding":"chunked","connection":"keep-alive","x-content-type-options":"nosniff","cache-control":"private,no-cache,no-store,max-age=0,must-revalidate","pragma":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
+[info] [2026-03-06T07:48:50.577Z] : 
+[info] [2026-03-06T07:48:50.577Z] : Executing predeploy script in D:\deepdive-project\backend\appsail-python
+[debug] [2026-03-06T07:48:50.577Z] : Executing command > python3 -m pip install -r ./requirements.txt -t ./ --upgrade
+[info] [2026-03-06T07:48:50.577Z] : > python3 -m pip install -r ./requirements.txt -t ./ --upgrade
+[debug] [2026-03-06T07:48:50.738Z] : CatalystError: The script exited with code greater than 0 or an error
+    at C:\Users\darwi\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\execute-script.js:84:23
+    at Generator.throw (<anonymous>)
+    at rejected (C:\Users\darwi\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\execute-script.js:29:65)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5) {
+  status: 500,
+  exit: 1,
+  original: Error: 9009
+      at C:\Users\darwi\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\execute-script.js:86:31
+      at Generator.throw (<anonymous>)
+      at rejected (C:\Users\darwi\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\execute-script.js:29:65)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5),
+  context: undefined,
+  errorId: 'EXEC-SCRIPT-4',
+  arg: [ '\x1B[1mpredeploy\x1B[22m', '\x1B[3m\x1B[31m9009\x1B[39m\x1B[23m' ],
+  skipHelp: false,
+  filePath: 'C:\\Users\\darwi\\AppData\\Roaming\\npm\\node_modules\\zcatalyst-cli\\lib\\docs\\execute-script'
+}
+[warn] [2026-03-06T07:48:50.739Z] : ‼ Deploy of AppSail [demoapp] was unsuccessful since The script exited with code greater than 0 or an error
+[info] [2026-03-06T07:48:50.739Z] : 
+[error] [2026-03-06T07:48:50.739Z] : × appsail: deploy skipped
+[info] [2026-03-06T07:48:50.740Z] : 
+[error] [2026-03-06T07:48:50.740Z] : × No components deployed!
+[info] [2026-03-06T07:48:50.740Z] : 
+[error] [2026-03-06T07:48:50.741Z] : × The script exited with code greater than 0 or an error
+[debug] [2026-03-06T07:48:50.741Z] : Error Stack: CatalystError: The script exited with code greater than 0 or an error
+    at C:\Users\darwi\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\execute-script.js:84:23
+    at Generator.throw (<anonymous>)
+    at rejected (C:\Users\darwi\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\execute-script.js:29:65)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[debug] [2026-03-06T07:48:50.741Z] : Original Error: Error: 9009
+    at C:\Users\darwi\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\execute-script.js:86:31
+    at Generator.throw (<anonymous>)
+    at rejected (C:\Users\darwi\AppData\Roaming\npm\node_modules\zcatalyst-cli\lib\execute-script.js:29:65)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[debug] [2026-03-06T07:48:50.741Z] : Error Status: 500
+[debug] [2026-03-06T07:48:50.742Z] : EXEC ENDED with event: deploy, message: success
+[debug] [2026-03-06T07:48:50.742Z] : TOTAL DURATION OF COMMAND EXEC : 545
+[debug] [2026-03-06T07:48:50.759Z] : >>>> HTTP REQUEST : POST https://api.catalyst.zoho.in/baas/v1/cli/logs 
+<request body omitted>
+
+[debug] [2026-03-06T07:48:50.838Z] : <<<< HTTP RESPONSE : 200
+Response Headers: {"server":"ZGS","date":"Fri, 06 Mar 2026 07:48:53 GMT","content-length":"0","connection":"keep-alive","x-content-type-options":"nosniff","cache-control":"private,no-cache,no-store,max-age=0,must-revalidate","pragma":"no-cache","expires":"Thu, 01 Jan 1970 00:00:00 GMT","x-frame-options":"DENY","strict-transport-security":"max-age=64072000; includeSubDomains; preload"}
+
