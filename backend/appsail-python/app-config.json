@@ -1,5 +1,5 @@
 {
-	"command": "gunicorn app.main:app -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:8080",
+	"command": "pip3 install -r requirements.txt; gunicorn app.main:app -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:8080",
 	"build_path": ".",
 	"stack": "python_3_9",
 	"memory": 512
