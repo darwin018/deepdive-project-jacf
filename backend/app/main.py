@@ -22,6 +22,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.options("/{path:path}")
+async def options_handler(path: str):
+    return {"status": "ok"}
+
 from fastapi.staticfiles import StaticFiles
 from .api import auth, categories, products, orders
 from .models import order # Import to ensure tables are created
