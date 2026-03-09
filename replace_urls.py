@@ -18,4 +18,4 @@ for filepath in glob.glob(f"{directory}/*.jsx"):
         count += 1
         print(f"Updated {filepath}")
 
-print(f"Total updated: {count}")
+print(f"Total updated as: {count}")
