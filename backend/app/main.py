@@ -14,6 +14,7 @@ origins = [
     "http://localhost:5173",
     "http://localhost:5174",
     "http://localhost:5175",
+    "https://deepdive-project-zwhkunlq.onslate.in",
 ]
 
 app.add_middleware(

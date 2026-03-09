@@ -15,7 +15,7 @@ const Orders = () => {
     useEffect(() => {
         const fetchOrders = async () => {
             try {
-                const response = await axios.get('http://127.0.0.1:8000/orders/');
+                const response = await axios.get('https://demoapp-50039367885.development.catalystappsail.in/orders/');
                 setOrders(response.data);
                 setLoading(false);
             } catch (err) {
@@ -40,7 +40,7 @@ const Orders = () => {
 
     const handleStatusChange = async (orderId, newStatus) => {
         try {
-            await axios.put(`http://127.0.0.1:8000/orders/${orderId}/status`, { status: newStatus });
+            await axios.put(`https://demoapp-50039367885.development.catalystappsail.in/orders/${orderId}/status`, { status: newStatus });
             setOrders(orders.map(order => 
                 order.id === orderId ? { ...order, status: newStatus } : order
             ));
@@ -52,7 +52,7 @@ const Orders = () => {
 
     const handlePaymentStatusChange = async (orderId, newStatus) => {
         try {
-            await axios.put(`http://127.0.0.1:8000/orders/${orderId}/payment-status/`, { payment_status: newStatus });
+            await axios.put(`https://demoapp-50039367885.development.catalystappsail.in/orders/${orderId}/payment-status/`, { payment_status: newStatus });
             setOrders(orders.map(order => 
                 order.id === orderId ? { ...order, payment_status: newStatus } : order
             ));

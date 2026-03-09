@@ -137,7 +137,7 @@ const CheckoutForm = () => {
         };
 
         try {
-            const response = await fetch('http://localhost:8000/orders/', {
+            const response = await fetch('https://demoapp-50039367885.development.catalystappsail.in/orders/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
