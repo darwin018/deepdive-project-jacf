@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from typing import Optional
 
 class CategoryBase(BaseModel):
     name: str
@@ -8,7 +9,7 @@ class CategoryCreate(CategoryBase):
 
 class Category(CategoryBase):
     id: int
-    image_url: str | None = None
+    image_url: Optional[str] = None
 
     class Config:
         from_attributes = True
