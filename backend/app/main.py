@@ -22,9 +22,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+from fastapi import Request, Response
+
 @app.options("/{path:path}")
-async def options_handler(path: str):
-    return {"status": "ok"}
+async def preflight_handler(request: Request):
+    return Response(status_code=200)
 
 from fastapi.staticfiles import StaticFiles
 from .api import auth, categories, products, orders
