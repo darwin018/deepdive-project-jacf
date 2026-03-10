@@ -71,65 +71,118 @@ const Orders = () => {
             {orders.length === 0 ? (
                 <p className={styles.noOrders}>No orders found.</p>
             ) : (
-                <div className={styles.tableWrapper}>
-                    <table className={styles.ordersTable}>
-                        <thead>
-                            <tr>
-                                <th>Order ID</th>
-                                <th>Customer Name</th>
-                                <th>Email</th>
-                                <th>Number</th>
-                                <th>View Details</th>
-                                <th>Order Status</th>
-                                <th>Payment Status</th>
+            <>
+            <div className={styles.orderGrid}>
+                {orders.map(order => (
+                    <div key={order.id} className={styles.orderCard}>
+                        <div className={styles.cardHeader}>
+                            <h3 className={styles.orderId}>Order #{order.id}</h3>
+                            <button 
+                                className={styles.viewBtn} 
+                                onClick={() => handleViewDetails(order)}
+                            >
+                                View Details
+                            </button>
+                        </div>
+                        <div className={styles.cardDetails}>
+                            <p><strong>Customer:</strong> {order.name}</p>
+                            <p><strong>Email:</strong> {order.customer_email}</p>
+                            <p><strong>Number:</strong> {order.whatsapp_number}</p>
+                        </div>
+                        <div className={styles.cardActions}>
+                            <div className={styles.statusGroup}>
+                                <label>Order Status:</label>
+                                <select 
+                                    className={`${styles.statusSelect} ${styles[order.status?.toLowerCase().replace(' ', '') || 'pending']}`}
+                                    value={order.status || 'Pending'}
+                                    onChange={(e) => handleStatusChange(order.id, e.target.value)}
+                                >
+                                    {statusOptions.map(option => (
+                                        <option key={option} value={option}>
+                                            {option}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+                            <div className={styles.statusGroup}>
+                                <label>Payment:</label>
+                                <select 
+                                    className={`${styles.statusSelect} ${styles.payment} ${styles[order.payment_status?.toLowerCase().replace(' ', '') || 'pending']}`}
+                                    value={order.payment_status || 'Pending'}
+                                    onChange={(e) => handlePaymentStatusChange(order.id, e.target.value)}
+                                >
+                                    {paymentOptions.map(option => (
+                                        <option key={option} value={option}>
+                                            {option}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <div className={styles.tableWrapper}>
+                <table className={styles.ordersTable}>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer Name</th>
+                            <th>Email</th>
+                            <th>Number</th>
+                            <th>View Details</th>
+                            <th>Order Status</th>
+                            <th>Payment Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {orders.map(order => (
+                            <tr key={order.id}>
+                                <td>#{order.id}</td>
+                                <td>{order.name}</td>
+                                <td>{order.customer_email}</td>
+                                <td>{order.whatsapp_number}</td>
+                                <td>
+                                    <button 
+                                        className={styles.viewBtn} 
+                                        onClick={() => handleViewDetails(order)}
+                                    >
+                                        View
+                                    </button>
+                                </td>
+                                <td>
+                                    <select 
+                                        className={`${styles.statusSelect} ${styles[order.status?.toLowerCase().replace(' ', '') || 'pending']}`}
+                                        value={order.status || 'Pending'}
+                                        onChange={(e) => handleStatusChange(order.id, e.target.value)}
+                                    >
+                                        {statusOptions.map(option => (
+                                            <option key={option} value={option}>
+                                                {option}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </td>
+                                <td>
+                                    <select 
+                                        className={`${styles.statusSelect} ${styles.payment} ${styles[order.payment_status?.toLowerCase().replace(' ', '') || 'pending']}`}
+                                        value={order.payment_status || 'Pending'}
+                                        onChange={(e) => handlePaymentStatusChange(order.id, e.target.value)}
+                                    >
+                                        {paymentOptions.map(option => (
+                                            <option key={option} value={option}>
+                                                {option}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            {orders.map(order => (
-                                <tr key={order.id}>
-                                    <td>#{order.id}</td>
-                                    <td>{order.name}</td>
-                                    <td>{order.customer_email}</td>
-                                    <td>{order.whatsapp_number}</td>
-                                    <td>
-                                        <button 
-                                            className={styles.viewBtn} 
-                                            onClick={() => handleViewDetails(order)}
-                                        >
-                                            View
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <select 
-                                            className={`${styles.statusSelect} ${styles[order.status?.toLowerCase().replace(' ', '') || 'pending']}`}
-                                            value={order.status || 'Pending'}
-                                            onChange={(e) => handleStatusChange(order.id, e.target.value)}
-                                        >
-                                            {statusOptions.map(option => (
-                                                <option key={option} value={option}>
-                                                    {option}
-                                                </option>
-                                            ))}
-                                        </select>
-                                    </td>
-                                    <td>
-                                        <select 
-                                            className={`${styles.statusSelect} ${styles.payment} ${styles[order.payment_status?.toLowerCase().replace(' ', '') || 'pending']}`}
-                                            value={order.payment_status || 'Pending'}
-                                            onChange={(e) => handlePaymentStatusChange(order.id, e.target.value)}
-                                        >
-                                            {paymentOptions.map(option => (
-                                                <option key={option} value={option}>
-                                                    {option}
-                                                </option>
-                                            ))}
-                                        </select>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+            </>
             )}
 
             {isModalOpen && selectedOrder && (
