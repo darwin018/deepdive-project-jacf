@@ -172,6 +172,62 @@ const Products = () => {
                 </select>
             </div>
 
+            <div className={styles.productGrid}>
+                {filteredProducts.map((product) => {
+                    const inCart = !!cart[product.id];
+                    const quantity = inCart ? cart[product.id] : (inputQuantities[product.id] || 1);
+
+                    return (
+                        <div key={product.id} className={styles.productCard}>
+                            <div className={styles.cardImageWrapper}>
+                                <img 
+                                    src={`https://demoapp-50039367885.development.catalystappsail.in${product.image_url}`} 
+                                    alt={product.name} 
+                                    className={styles.productImage} 
+                                />
+                            </div>
+                            <div className={styles.cardContent}>
+                                <h3 className={styles.productName}>{product.name}</h3>
+                                <div className={styles.cardPrices}>
+                                    <span className={styles.actualPrice}>
+                                        {product.actual_price ? `₹${product.actual_price}` : ''}
+                                    </span>
+                                    <span className={styles.offerPrice}>₹{product.offer_price}</span>
+                                </div>
+                                <div className={styles.cardActions}>
+                                    <div className={styles.quantityControls}>
+                                        <button 
+                                            className={styles.qtyButton} 
+                                            onClick={() => handleUpdateQuantity(product.id, -1)}
+                                        >-</button>
+                                        <span className={styles.qtyInput}>{quantity}</span>
+                                        <button 
+                                            className={styles.qtyButton} 
+                                            onClick={() => handleUpdateQuantity(product.id, 1)}
+                                        >+</button>
+                                        
+                                        {inCart ? (
+                                            <button 
+                                                className={styles.removeCartItem} 
+                                                onClick={() => handleRemoveFromCart(product.id)}
+                                            >✕</button>
+                                        ) : (
+                                            <button 
+                                                className={styles.addToCartButton} 
+                                                onClick={() => handleAddToCart(product.id)}
+                                                title="Add to Cart"
+                                            >
+                                                <img src={addtocartIcon} alt="Add to Cart" className={styles.cartIcon} />
+                                            </button>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    );
+                })}
+            </div>
+
             <div className={styles.tableWrapper}>
                 <table className={styles.productTable}>
                     <thead>

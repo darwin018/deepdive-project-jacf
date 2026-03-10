@@ -256,33 +256,95 @@
     background-color: #00B3A4;
 }
 
+/* Mobile Grid Styles */
+.productGrid {
+    display: none;
+}
+
+.productCard {
+    background-color: #1C1C1C;
+    border: 1px solid #3A3A3A;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+}
+
+.cardImageWrapper {
+    width: 100%;
+    height: 180px;
+    background-color: #0B0B0B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #3A3A3A;
+    padding: 1rem;
+}
+
+.cardImageWrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.cardContent {
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.cardContent .productName {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cardPrices {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+}
+
+.cardActions {
+    margin-top: auto;
+    border-top: 1px solid #3A3A3A;
+    padding-top: 1rem;
+}
+
+.cardActions .quantityControls {
+    justify-content: center;
+    width: 100%;
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 1rem;
     }
 
-    .productTable th,
-    .productTable td {
-        padding: 0.8rem;
+    .tableWrapper {
+        display: none;
     }
 
-    .imageCell,
-    .imageHeader {
-        width: 60px;
-    }
-
-    .priceCell {
-        width: auto;
-    }
-
-    .actionCell {
-        width: auto;
+    .productGrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1rem;
     }
 
     .qtyButton {
-        width: 28px;
-        height: 28px;
-        font-size: 1rem;
+        width: 36px;
+        height: 36px;
+        font-size: 1.2rem;
+    }
+
+    .addToCartButton {
+        width: 36px;
+        height: 36px;
     }
 
     .floatingCart {

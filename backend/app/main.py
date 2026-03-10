@@ -8,20 +8,6 @@ models.Base.metadata.create_all(bind=database.engine)
 
 app = FastAPI()
 
-from fastapi.middleware.cors import CORSMiddleware
-
-origins = [
-    "https://deepdive-project-zwhkunlq.onslate.in",
-]
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
 
 
 from fastapi.staticfiles import StaticFiles
