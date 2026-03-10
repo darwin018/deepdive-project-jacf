@@ -167,6 +167,44 @@ const AdminProducts = () => {
                 </div>
             </div>
 
+            <div className={styles.productGrid}>
+                {products.map((product) => {
+                    const cat = categories.find(c => c.id === product.category_id);
+                    return (
+                        <div key={product.id} className={styles.productCard}>
+                            <div className={styles.cardImageWrapper}>
+                                {product.image_url ? (
+                                    <img 
+                                        src={`https://demoapp-50039367885.development.catalystappsail.in${product.image_url}`} 
+                                        alt={product.name} 
+                                        className={styles.cardImage} 
+                                    />
+                                ) : (
+                                    <div className={styles.noImage}>No Image</div>
+                                )}
+                            </div>
+                            <div className={styles.cardContent}>
+                                <h3 className={styles.cardTitle}>{product.name}</h3>
+                                <div className={styles.cardMeta}>
+                                    <p><strong>ID:</strong> {product.id}</p>
+                                    <p><strong>Category:</strong> {cat ? cat.name : product.category_id}</p>
+                                    <p><strong>Quantity:</strong> {product.quantity}</p>
+                                    <p className={styles.cardDescription}>{product.description}</p>
+                                </div>
+                                <div className={styles.cardPrices}>
+                                    <span className={styles.actualPrice}>₹{product.actual_price}</span>
+                                    <span className={styles.offerPrice}>₹{product.offer_price}</span>
+                                </div>
+                                <div className={styles.cardActions}>
+                                    <button className={styles.editButton} onClick={() => handleEditClick(product)}>Edit</button>
+                                    <button className={styles.deleteButton} onClick={() => handleDeleteClick(product.id)}>Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    );
+                })}
+            </div>
+
             <div className={styles.tableContainer}>
                 <table className={styles.table}>
                     <thead>

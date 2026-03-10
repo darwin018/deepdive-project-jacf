@@ -159,6 +159,28 @@ const AdminCategories = () => {
                 </button>
             </div>
 
+            <div className={styles.categoryGrid}>
+                {categories.map((category) => (
+                    <div key={category.id} className={styles.categoryCard}>
+                        <div className={styles.cardImageWrapper}>
+                            <img 
+                                src={`https://demoapp-50039367885.development.catalystappsail.in${category.image_url}`} 
+                                alt={category.name} 
+                                className={styles.cardImage} 
+                            />
+                        </div>
+                        <div className={styles.cardContent}>
+                            <h3 className={styles.cardTitle}>{category.name}</h3>
+                            <div className={styles.cardMeta}>ID: {category.id}</div>
+                            <div className={styles.cardActions}>
+                                <button className={styles.editButton} onClick={() => handleEditClick(category)}>Edit</button>
+                                <button className={styles.deleteButton} onClick={() => handleDeleteClick(category.id)}>Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
             <div className={styles.tableContainer}>
                 <table className={styles.table}>
                     <thead>
