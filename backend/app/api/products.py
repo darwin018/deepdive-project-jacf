@@ -1,5 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form, Query, Response
 from sqlalchemy.orm import Session
+from PIL import Image
+import io
 from .. import models, schemas, database
 from typing import List, Optional
 import shutil
@@ -21,23 +23,13 @@ def read_products(
     category_id: Optional[int] = Query(None),
     db: Session = Depends(database.get_db)
 ):
-    # Exclude large binary data from the read query
-    base_query = db.query(
-        models.Product.id,
-        models.Product.name,
-        models.Product.description,
-        models.Product.quantity,
-        models.Product.actual_price,
-        models.Product.offer_price,
-        models.Product.category_id,
-        models.Product.image_url
-    )
+    base_query = db.query(models.Product)
     
     if category_id:
         base_query = base_query.filter(models.Product.category_id == category_id)
         
     products = base_query.offset(skip).limit(limit).all()
-    return [{"id": p.id, "name": p.name, "description": p.description, "quantity": p.quantity, "actual_price": p.actual_price, "offer_price": p.offer_price, "category_id": p.category_id, "image_url": p.image_url} for p in products]
+    return products
 
 @router.post("/", response_model=schemas.Product)
 def create_product(
@@ -59,8 +51,19 @@ def create_product(
     image_mime_type = None
     
     if image:
-        image_data = image.file.read()
-        image_mime_type = image.content_type
+        image_bytes = image.file.read()
+        try:
+            img = Image.open(io.BytesIO(image_bytes))
+            if img.mode in ("RGBA", "P"):
+                img = img.convert("RGB")
+            img.thumbnail((1000, 1000))
+            buffer = io.BytesIO()
+            img.save(buffer, format="webp", quality=80)
+            image_data = buffer.getvalue()
+            image_mime_type = "image/webp"
+        except Exception:
+            image_data = image_bytes
+            image_mime_type = image.content_type
 
     db_product = models.Product(
         name=name,
@@ -81,16 +84,7 @@ def create_product(
         db.commit()
         db.refresh(db_product)
 
-    return {
-        "id": db_product.id,
-        "name": db_product.name,
-        "description": db_product.description,
-        "quantity": db_product.quantity,
-        "actual_price": db_product.actual_price,
-        "offer_price": db_product.offer_price,
-        "category_id": db_product.category_id,
-        "image_url": db_product.image_url
-    }
+    return db_product
 
 @router.put("/{product_id}", response_model=schemas.Product)
 def update_product(
@@ -122,23 +116,25 @@ def update_product(
         db_product.category_id = category_id
 
     if image:
-        db_product.image_data = image.file.read()
-        db_product.image_mime_type = image.content_type
+        image_bytes = image.file.read()
+        try:
+            img = Image.open(io.BytesIO(image_bytes))
+            if img.mode in ("RGBA", "P"):
+                img = img.convert("RGB")
+            img.thumbnail((1000, 1000))
+            buffer = io.BytesIO()
+            img.save(buffer, format="webp", quality=80)
+            db_product.image_data = buffer.getvalue()
+            db_product.image_mime_type = "image/webp"
+        except Exception:
+            db_product.image_data = image_bytes
+            db_product.image_mime_type = image.content_type
         db_product.image_url = f"/products/{db_product.id}/image"
 
     db.commit()
     # Re-fetch
     db_product = db.query(models.Product).filter(models.Product.id == product_id).first()
-    return {
-        "id": db_product.id,
-        "name": db_product.name,
-        "description": db_product.description,
-        "quantity": db_product.quantity,
-        "actual_price": db_product.actual_price,
-        "offer_price": db_product.offer_price,
-        "category_id": db_product.category_id,
-        "image_url": db_product.image_url
-    }
+    return db_product
 
 @router.delete("/{product_id}")
 def delete_product(product_id: int, db: Session = Depends(database.get_db)):
@@ -156,4 +152,8 @@ def get_product_image(product_id: int, db: Session = Depends(database.get_db)):
     if not db_product or not db_product.image_data:
         raise HTTPException(status_code=404, detail="Image not found")
     
-    return Response(content=db_product.image_data, media_type=db_product.image_mime_type or "image/jpeg")
+    return Response(
+        content=db_product.image_data, 
+        media_type=db_product.image_mime_type or "image/jpeg",
+        headers={"Cache-Control": "public, max-age=31536000"}
+    )

@@ -1,5 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form, Response
 from sqlalchemy.orm import Session
+from PIL import Image
+import io
 from .. import models, schemas, database
 from typing import List
 import shutil
@@ -16,14 +18,9 @@ os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 @router.get("/", response_model=List[schemas.Category])
 def read_categories(skip: int = 0, limit: int = 100, db: Session = Depends(database.get_db)):
-    categories = db.query(
-        models.Category.id,
-        models.Category.name,
-        models.Category.image_url
-    ).offset(skip).limit(limit).all()
+    categories = db.query(models.Category).offset(skip).limit(limit).all()
     
-    # Map back to objects matching the schema to support response_model
-    return [{"id": c.id, "name": c.name, "image_url": c.image_url} for c in categories]
+    return categories
 
 @router.post("/", response_model=schemas.Category)
 def create_category(
@@ -40,8 +37,20 @@ def create_category(
     image_data = None
     image_mime_type = None
     if image:
-        image_data = image.file.read()
-        image_mime_type = image.content_type
+        image_bytes = image.file.read()
+        try:
+            img = Image.open(io.BytesIO(image_bytes))
+            if img.mode in ("RGBA", "P"):
+                img = img.convert("RGB")
+            img.thumbnail((1000, 1000))
+            buffer = io.BytesIO()
+            img.save(buffer, format="webp", quality=80)
+            image_data = buffer.getvalue()
+            image_mime_type = "image/webp"
+        except Exception:
+            # Fallback to original if Pillow fails
+            image_data = image_bytes
+            image_mime_type = image.content_type
     
     db_category = models.Category(name=name, image_data=image_data, image_mime_type=image_mime_type)
 
@@ -53,7 +62,7 @@ def create_category(
         db_category.image_url = f"/categories/{db_category.id}/image"
         db.commit()
         db.refresh(db_category)
-    return {"id": db_category.id, "name": db_category.name, "image_url": db_category.image_url}
+    return db_category
 
 @router.put("/{category_id}", response_model=schemas.Category)
 def update_category(
@@ -75,14 +84,25 @@ def update_category(
     db_category.name = name
     
     if image:
-        db_category.image_data = image.file.read()
-        db_category.image_mime_type = image.content_type
+        image_bytes = image.file.read()
+        try:
+            img = Image.open(io.BytesIO(image_bytes))
+            if img.mode in ("RGBA", "P"):
+                img = img.convert("RGB")
+            img.thumbnail((1000, 1000))
+            buffer = io.BytesIO()
+            img.save(buffer, format="webp", quality=80)
+            db_category.image_data = buffer.getvalue()
+            db_category.image_mime_type = "image/webp"
+        except Exception:
+            db_category.image_data = image_bytes
+            db_category.image_mime_type = image.content_type
         db_category.image_url = f"/categories/{db_category.id}/image"
 
     db.commit()
     # Re-fetch the category to ensure it's persistent and up-to-date
     db_category = db.query(models.Category).filter(models.Category.id == category_id).first()
-    return {"id": db_category.id, "name": db_category.name, "image_url": db_category.image_url}
+    return db_category
 
 @router.delete("/{category_id}")
 def delete_category(category_id: int, db: Session = Depends(database.get_db)):
@@ -100,4 +120,8 @@ def get_category_image(category_id: int, db: Session = Depends(database.get_db))
     if not db_category or not db_category.image_data:
         raise HTTPException(status_code=404, detail="Image not found")
     
-    return Response(content=db_category.image_data, media_type=db_category.image_mime_type or "image/jpeg")
+    return Response(
+        content=db_category.image_data, 
+        media_type=db_category.image_mime_type or "image/jpeg",
+        headers={"Cache-Control": "public, max-age=31536000"}
+    )

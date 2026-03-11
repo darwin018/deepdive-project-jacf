@@ -166,6 +166,7 @@ const AdminCategories = () => {
                             <img 
                                 src={`https://demoapp-50039367885.development.catalystappsail.in${category.image_url}`} 
                                 alt={category.name} 
+                                loading="lazy"
                                 className={styles.cardImage} 
                             />
                         </div>
@@ -199,6 +200,7 @@ const AdminCategories = () => {
                                     <img 
                                         src={`https://demoapp-50039367885.development.catalystappsail.in${category.image_url}`} 
                                         alt={category.name} 
+                                        loading="lazy"
                                         className={styles.categoryImage} 
                                     />
                                 </td>

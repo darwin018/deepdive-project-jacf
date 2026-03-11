@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String, Float, ForeignKey, LargeBinary
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, deferred
 from ..database import Base
 
 class Product(Base):
@@ -12,8 +12,8 @@ class Product(Base):
     actual_price = Column(Float)
     offer_price = Column(Float)
     image_url = Column(String)
-    image_data = Column(LargeBinary)
-    image_mime_type = Column(String)
+    image_data = deferred(Column(LargeBinary))
+    image_mime_type = deferred(Column(String))
     category_id = Column(Integer, ForeignKey("categories.id"))
 
     category = relationship("Category", back_populates="products")

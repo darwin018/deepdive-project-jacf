@@ -183,6 +183,7 @@ const Products = () => {
                                 <img 
                                     src={`https://demoapp-50039367885.development.catalystappsail.in${product.image_url}`} 
                                     alt={product.name} 
+                                    loading="lazy"
                                     className={styles.productImage} 
                                 />
                             </div>
@@ -251,6 +252,7 @@ const Products = () => {
                                             <img 
                                                 src={`https://demoapp-50039367885.development.catalystappsail.in${product.image_url}`} 
                                                 alt={product.name} 
+                                                loading="lazy"
                                                 className={styles.productImage} 
                                             />
                                         </div>
