@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Float, ForeignKey
+from sqlalchemy import Column, Integer, String, Float, ForeignKey, LargeBinary
 from sqlalchemy.orm import relationship
 from ..database import Base
 
@@ -12,6 +12,8 @@ class Product(Base):
     actual_price = Column(Float)
     offer_price = Column(Float)
     image_url = Column(String)
+    image_data = Column(LargeBinary)
+    image_mime_type = Column(String)
     category_id = Column(Integer, ForeignKey("categories.id"))
 
     category = relationship("Category", back_populates="products")

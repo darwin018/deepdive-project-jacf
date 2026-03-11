@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, LargeBinary
 from sqlalchemy.orm import relationship
 from ..database import Base
 
@@ -8,6 +8,8 @@ class Category(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, unique=True, index=True)
     image_url = Column(String)
+    image_data = Column(LargeBinary)
+    image_mime_type = Column(String)
     
     products = relationship("Product", back_populates="category")
 
