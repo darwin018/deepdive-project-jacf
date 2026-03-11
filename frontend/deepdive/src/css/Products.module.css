@@ -107,8 +107,8 @@
 }
 
 .actualPrice {
-    color: #00D2BE;
-    /* Light Gray */
+    color: #9CA3AF;
+    text-decoration: line-through;
     font-size: 1rem;
     font-weight: 700;
 }
