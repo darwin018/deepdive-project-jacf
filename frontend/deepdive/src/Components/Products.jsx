@@ -72,7 +72,8 @@ const Products = () => {
     };
 
     const handleAddToCart = (productId) => {
-        const qty = inputQuantities[productId] || 1;
+        const qty = inputQuantities[productId] || 0;
+        if (qty <= 0) return;
         setCart(prev => ({ ...prev, [productId]: qty }));
     };
 
@@ -93,8 +94,8 @@ const Products = () => {
         } else {
             // Update input quantity
             setInputQuantities(prev => {
-                const currentQty = prev[productId] || 1;
-                const newQty = Math.max(1, currentQty + change);
+                const currentQty = prev[productId] || 0;
+                const newQty = Math.max(0, currentQty + change);
                 return { ...prev, [productId]: newQty };
             });
         }
@@ -186,7 +187,7 @@ const Products = () => {
             <div className={styles.productGrid}>
                 {filteredProducts.map((product) => {
                     const inCart = !!cart[product.id];
-                    const quantity = inCart ? cart[product.id] : (inputQuantities[product.id] || 1);
+                    const quantity = inCart ? cart[product.id] : (inputQuantities[product.id] || 0);
 
                     return (
                         <div key={product.id} className={styles.productCard}>
@@ -254,7 +255,7 @@ const Products = () => {
                     <tbody>
                         {filteredProducts.map((product) => {
                             const inCart = !!cart[product.id];
-                            const quantity = inCart ? cart[product.id] : (inputQuantities[product.id] || 1);
+                            const quantity = inCart ? cart[product.id] : (inputQuantities[product.id] || 0);
 
                             return (
                                 <tr key={product.id} className={styles.productRow}>
