@@ -43,13 +43,11 @@
 }
 
 .tableContainer {
-    background-color: #1F2937;
-    /* Graphite */
+    background-color: #F5F5F5;
     border-radius: 8px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     overflow-x: auto;
     border: 1px solid #E5E7EB;
-    /* Gunmetal Gray */
 }
 
 .table {
@@ -114,8 +112,8 @@
 
 .deleteButton {
     background-color: #FF5656;
-    /* Standard Red */
-    color: #1F2937;
+    /* Coral Red */
+    color: #FFFFFF;
 }
 
 .deleteButton:hover {
@@ -138,13 +136,13 @@
 }
 
 .modal {
-    background-color: #1F2937;
-    /* Graphite */
+    background-color: #F5F5F5;
+    /* Light Mist */
     padding: 2.5rem;
     border-radius: 12px;
     width: 500px;
     max-width: 95%;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
     border: 1px solid #E5E7EB;
     color: #1F2937;
 }
@@ -178,8 +176,8 @@
     border: 1px solid #E5E7EB;
     border-radius: 6px;
     font-size: 1rem;
-    background-color: #FEEE91;
-    /* Dark Silver */
+    background-color: #FFFFFF;
+    /* Pure White */
     color: #1F2937;
     transition: border-color 0.3s;
 }
@@ -218,7 +216,7 @@
 }
 
 .cancelButton:hover {
-    background-color: #FEEE91;
+    background-color: #F5F5F5;
     color: #1F2937;
 }
 
@@ -239,13 +237,13 @@
 }
 
 .categoryCard {
-    background-color: #1F2937;
+    background-color: #F5F5F5;
     border: 1px solid #E5E7EB;
     border-radius: 12px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .cardImageWrapper {

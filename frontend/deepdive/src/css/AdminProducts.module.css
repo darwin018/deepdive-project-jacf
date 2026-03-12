@@ -42,13 +42,12 @@
 }
 
 .tableContainer {
-    background-color: #1F2937;
-    /* Graphite */
+    background-color: #F5F5F5;
+    /* Light Mist */
     border-radius: 8px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     overflow-x: auto;
     border: 1px solid #E5E7EB;
-    /* Gunmetal Gray */
 }
 
 .table {
@@ -114,8 +113,8 @@
 
 .deleteButton {
     background-color: #FF5656;
-    /* Standard Red */
-    color: #1F2937;
+    /* Coral Red */
+    color: #FFFFFF;
 }
 
 .deleteButton:hover {
@@ -138,14 +137,14 @@
 }
 
 .modal {
-    background-color: #1F2937;
-    /* Graphite */
+    background-color: #F5F5F5;
+    /* Light Mist */
     padding: 2.5rem;
     border-radius: 16px;
     width: 600px;
     /* Reduced width preserved */
     max-width: 90%;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
     border: 1px solid #E5E7EB;
     color: #1F2937;
     max-height: 90vh;
@@ -195,8 +194,8 @@
     border: 1px solid #E5E7EB;
     border-radius: 6px;
     font-size: 0.95rem;
-    background-color: #FEEE91;
-    /* Dark Silver */
+    background-color: #FFFFFF;
+    /* Pure White */
     color: #1F2937;
     transition: all 0.3s;
 }
@@ -226,7 +225,7 @@
 /* Custom File Input Styling */
 .fileInput {
     padding: 0.6rem;
-    background-color: #FEEE91;
+    background-color: #FFFFFF;
     border: 1px dashed #E5E7EB;
     border-radius: 8px;
     cursor: pointer;
@@ -280,7 +279,7 @@
 }
 
 .cancelButton:hover {
-    background-color: #FEEE91;
+    background-color: #F5F5F5;
     color: #1F2937;
     border-color: #FFA239;
 }
@@ -308,7 +307,7 @@
     border-radius: 6px;
     border: 1px solid #E5E7EB;
     font-size: 0.95rem;
-    background-color: #1F2937;
+    background-color: #F5F5F5;
     color: #1F2937;
     cursor: pointer;
     min-width: 200px;
@@ -331,13 +330,13 @@
 }
 
 .productCard {
-    background-color: #1F2937;
+    background-color: #F5F5F5;
     border: 1px solid #E5E7EB;
     border-radius: 12px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .cardImageWrapper {

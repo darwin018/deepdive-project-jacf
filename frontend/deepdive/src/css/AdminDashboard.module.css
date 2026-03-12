@@ -2,10 +2,8 @@
     display: flex;
     min-height: 100vh;
     background-color: #FAFAFA;
-    /* Carbon Black */
     font-family: 'Outfit', sans-serif;
     color: #1F2937;
-    /* Pure White */
 }
 
 .contentWrapper {
