@@ -10,7 +10,7 @@
 }
 
 .formWrapper {
-    background-color: #1F2937;
+    background-color: #FAFAFA;
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
@@ -45,7 +45,7 @@
 
 .input,
 .textarea {
-    background-color: #FEEE91;
+    background-color: #FAFAFA;
     border: 1px solid #E5E7EB;
     padding: 0.8rem;
     border-radius: 6px;
@@ -81,7 +81,7 @@
 }
 
 .summary {
-    background-color: #FAFAFA;
+    background-color: #dbdbdb;
     padding: 1rem;
     border-radius: 6px;
     margin-top: 1rem;
