@@ -51,10 +51,7 @@
 
 .menu li a:hover,
 .menu li a.active {
-    background-color: #FEEE91;
-    /* Soft Lemon */
-    color: #FFA239;
-    /* Sunset Orange */
+    
     border-left: 3px solid #FFA239;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }

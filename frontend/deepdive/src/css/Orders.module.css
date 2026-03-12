@@ -86,9 +86,7 @@
 }
 
 .viewBtn:hover {
-    background-color: #FEEE91;
-    /* Petronas Teal */
-    color: #FFFFFF;
+    
     border-color: #FEEE91;
 }
 
