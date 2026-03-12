@@ -9,7 +9,7 @@
 }
 
 .loginCard {
-    background-color: #1F2937;
+    background-color: #FAFAFA;
     /* Graphite */
     padding: 3rem;
     border-radius: 12px;
@@ -40,7 +40,7 @@
     padding: 0.8rem 1rem;
     border-radius: 6px;
     border: 1px solid #E5E7EB;
-    background-color: #FEEE91;
+    background-color: #FAFAFA;
     /* Dark Silver */
     color: #1F2937;
     /* Pure White */
