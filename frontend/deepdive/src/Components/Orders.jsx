@@ -211,6 +211,7 @@ const Orders = () => {
                                                 <th>Product Name</th>
                                                 <th>Quantity</th>
                                                 <th>Price</th>
+                                                <th>Total</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -219,6 +220,7 @@ const Orders = () => {
                                                     <td>{item.product?.name || `Product #${item.product_id}`}</td>
                                                     <td>{item.quantity}</td>
                                                     <td>₹{item.price.toFixed(2)}</td>
+                                                    <td>₹{(item.price * item.quantity).toFixed(2)}</td>
                                                 </tr>
                                             ))}
                                         </tbody>
