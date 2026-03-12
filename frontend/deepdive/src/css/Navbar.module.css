@@ -1,9 +1,9 @@
 .navbar {
     width: 100%;
-    background-color: #1C1C1C;
-    /* Graphite */
-    border-bottom: 1px solid #3A3A3A;
-    /* Gunmetal Gray */
+    background-color: #FFFFFF;
+    /* Pure White */
+    border-bottom: 1px solid #F5F5F5;
+    /* Light Mist */
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -18,8 +18,8 @@
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #00D2BE;
-    /* Petronas Teal */
+    color: #FF5656;
+    /* Coral Red */
     margin-bottom: 0;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -43,8 +43,8 @@
     display: flex;
     align-items: center;
     padding: 0.5rem 0.8rem;
-    color: #B5B5B5;
-    /* Light Gray */
+    color: #6B7280;
+    /* Medium Gray */
     text-decoration: none;
     border-radius: 6px;
     font-size: 1rem;
@@ -54,10 +54,10 @@
 .link:hover,
 .activeLink {
     background-color: transparent;
-    color: #00D2BE;
-    /* Petronas Teal */
+    color: #FFA239;
+    /* Sunset Orange */
     border-left: none;
-    border-bottom: 2px solid #00D2BE;
+    border-bottom: 2px solid #FFA239;
     border-radius: 0;
 }
 

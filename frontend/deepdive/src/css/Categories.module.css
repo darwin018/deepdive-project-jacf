@@ -1,16 +1,16 @@
 .container {
     padding: 2rem;
     font-family: 'Outfit', sans-serif;
-    background-color: #0B0B0B;
+    background-color: #FAFAFA;
     /* Carbon Black */
     min-height: 100vh;
-    color: #FFFFFF;
+    color: #1F2937;
     /* Pure White */
 }
 
 .title {
     font-size: 2rem;
-    color: #00D2BE;
+    color: #FFA239;
     /* Petronas Teal */
     margin-bottom: 2rem;
     font-weight: 700;
@@ -46,11 +46,11 @@
 }
 
 .card {
-    background-color: #1C1C1C;
+    background-color: #1F2937;
     /* Graphite */
     border-radius: 12px;
     overflow: hidden;
-    border: 1px solid #3A3A3A;
+    border: 1px solid #E5E7EB;
     /* Gunmetal Gray */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
@@ -60,8 +60,8 @@
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px -5px rgba(0, 210, 190, 0.2);
-    border-color: #00D2BE;
+    box-shadow: 0 10px 20px -5px rgba(255, 162, 57, 0.2);
+    border-color: #FFA239;
     /* Petronas Teal */
 }
 
@@ -69,7 +69,7 @@
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-bottom: 1px solid #3A3A3A;
+    border-bottom: 1px solid #E5E7EB;
 }
 
 .cardContent {
@@ -80,13 +80,13 @@
 .categoryName {
     font-size: 1.2rem;
     font-weight: 600;
-    color: #FFFFFF;
+    color: #1F2937;
     /* Pure White */
     margin: 0;
     transition: color 0.3s ease;
 }
 
 .card:hover .categoryName {
-    color: #00D2BE;
+    color: #FFA239;
     /* Petronas Teal */
 }

@@ -62,7 +62,7 @@
 .statInfo h3 {
     font-size: 0.9rem;
     font-weight: 500;
-    color: #ffffff;
+    color: #1F2937;
     /* Light gray for label */
     margin: 0 0 0.5rem 0;
     text-transform: uppercase;
@@ -120,7 +120,7 @@
 .redCard .statIcon {
     background-color: rgba(239, 68, 68, 0.15);
     /* Red */
-    color: #EF4444;
+    color: #FF5656;
 }
 
 .redCard:hover {
@@ -146,7 +146,7 @@
 }
 
 .error {
-    color: #EF4444;
+    color: #FF5656;
 }
 
 @keyframes fadeIn {

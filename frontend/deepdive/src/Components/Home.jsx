@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from '../css/Home.module.css';
-import heroBg from '../assets/homebg1.png';
+import heroBg from '../assets/homebg5.png';
 
 const API_BASE = 'https://demoapp-50039367885.development.catalystappsail.in';
 
@@ -71,36 +71,6 @@ const Home = () => {
             <section className={styles.hero}>
                 <div className={styles.heroBg} style={{ backgroundImage: `url(${heroBg})` }} />
                 <div className={styles.heroOverlay} />
-
-                {/* Animated floating particles */}
-                <div className={styles.particles}>
-                    {Array.from({ length: 20 }, (_, i) => (
-                        <div
-                            key={i}
-                            className={styles.particle}
-                            style={{
-                                left: `${Math.random() * 100}%`,
-                                top: `${Math.random() * 100}%`,
-                                animationDelay: `${Math.random() * 3}s`,
-                                animationDuration: `${2 + Math.random() * 3}s`,
-                            }}
-                        />
-                    ))}
-                </div>
-
-                <div className={styles.heroContent}>
-                    <h1 className={styles.heroTitle}>
-                        Light Up Your Celebration with Premium Crackers
-                    </h1>
-                    <p className={styles.heroSubtitle}>
-                        Direct from <span className={styles.heroHighlight}>Sivakasi</span> manufacturers — the fireworks capital of India
-                    </p>
-                    <button onClick={() => navigate('/products')} className={styles.heroButton}>
-                        <span>🛒</span>
-                        <span>Shop Now</span>
-                        <span className={styles.heroButtonArrow}>→</span>
-                    </button>
-                </div>
             </section>
 
             {/* ===== 2. FEATURED CRACKERS ===== */}

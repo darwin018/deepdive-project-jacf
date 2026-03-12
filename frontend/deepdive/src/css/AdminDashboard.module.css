@@ -1,10 +1,10 @@
 .dashboardContainer {
     display: flex;
     min-height: 100vh;
-    background-color: #0B0B0B;
+    background-color: #FAFAFA;
     /* Carbon Black */
     font-family: 'Outfit', sans-serif;
-    color: #FFFFFF;
+    color: #1F2937;
     /* Pure White */
 }
 
@@ -18,7 +18,7 @@
     padding: 2rem;
     overflow-y: auto;
     height: 100vh;
-    background-color: #0B0B0B;
+    background-color: #FAFAFA;
     box-sizing: border-box;
 }
 
