@@ -15,7 +15,7 @@
 }
 
 .tableWrapper {
-    background-color: #1F2937;
+    background-color: #FAFAFA;
     /* Graphite */
     border-radius: 8px;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
@@ -45,7 +45,7 @@
 .ordersTable td {
     padding: 16px;
     border-bottom: 1px solid #E5E7EB;
-    color: #1F2937;
+    color: #FAFAFA;
     /* Pure White */
     vertical-align: middle;
 }
@@ -123,7 +123,7 @@
 }
 
 .statusSelect option {
-    background-color: #1F2937;
+    background-color: #FAFAFA;
     color: #1F2937;
 }
 
@@ -186,7 +186,7 @@
 }
 
 .modalContent {
-    background-color: #1F2937;
+    background-color: #FAFAFA;
     /* Graphite */
     border-radius: 12px;
     width: 100%;
@@ -218,7 +218,7 @@
     background: none;
     border: none;
     font-size: 24px;
-    color: #1F2937;
+    color: #FF5656;
     cursor: pointer;
     line-height: 1;
     transition: color 0.2s;
@@ -267,7 +267,7 @@
 }
 
 .orderProducts .ordersTable th {
-    background-color: #1F2937;
+    background-color: #FAFAFA;
     font-size: 0.8rem;
     padding: 12px;
 }
@@ -324,7 +324,7 @@
 }
 
 .orderCard {
-    background-color: #1F2937;
+    background-color: #FAFAFA;
     border: 1px solid #E5E7EB;
     border-radius: 12px;
     padding: 1.5rem;
