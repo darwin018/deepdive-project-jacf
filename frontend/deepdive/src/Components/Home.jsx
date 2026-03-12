@@ -134,7 +134,7 @@ const Home = () => {
                                     )}
                                     <span className={styles.offerPrice}>₹{product.offer_price}</span>
                                 </div>
-                                <button onClick={() => navigate('/products')} className={styles.addToCartBtn}>
+                                <button onClick={() => navigate('/products', { state: { addToCart: product.id } })} className={styles.addToCartBtn}>
                                     🛒 Add to Cart
                                 </button>
                             </div>

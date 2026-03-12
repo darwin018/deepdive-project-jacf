@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useSearchParams, useNavigate } from 'react-router-dom';
+import { useSearchParams, useNavigate, useLocation } from 'react-router-dom';
 import styles from '../css/Products.module.css';
 import addtocartIcon from '../assets/addtocart.png';
 
@@ -12,6 +12,7 @@ const Products = () => {
     const [selectedCategory, setSelectedCategory] = useState('All');
     const [searchParams] = useSearchParams();
     const navigate = useNavigate();
+    const location = useLocation();
 
     useEffect(() => {
         fetchProducts();
@@ -26,6 +27,16 @@ const Products = () => {
             setSelectedCategory('All');
         }
     }, [searchParams]);
+
+    // Auto-add product from Home page navigation
+    useEffect(() => {
+        if (location.state?.addToCart) {
+            const productId = location.state.addToCart;
+            setCart(prev => ({ ...prev, [productId]: (prev[productId] || 0) + 1 }));
+            // Clear the state so it doesn't re-add on re-render
+            window.history.replaceState({}, '');
+        }
+    }, [location.state]);
 
     const fetchProducts = async () => {
         try {
