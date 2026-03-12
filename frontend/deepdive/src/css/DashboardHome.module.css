@@ -20,7 +20,7 @@
 }
 
 .statCard {
-    background-color: #272727;
+    background-color: #FAFAFA;
     /* Slightly lighter than Carbon Black */
     border-radius: 12px;
     padding: 1.5rem;
@@ -73,7 +73,7 @@
     font-size: 1.8rem;
     font-weight: 700;
     margin: 0;
-    color: #FAFAFA;
+    color: #6B7280;
 }
 
 /* Card Specific Colors */

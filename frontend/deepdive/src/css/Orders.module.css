@@ -75,8 +75,8 @@
 
 /* Modal and Action Styles */
 .viewBtn {
-    background-color: #FEEE91;
-    color: #FFFFFF;
+    background-color: #FAFAFA;
+    color: #6B7280;
     border: 1px solid #E5E7EB;
     padding: 6px 12px;
     border-radius: 4px;
@@ -86,10 +86,10 @@
 }
 
 .viewBtn:hover {
-    background-color: #FF5656;
+    background-color: #FEEE91;
     /* Petronas Teal */
     color: #FFFFFF;
-    border-color: #FF5656;
+    border-color: #FEEE91;
 }
 
 .statusSelect {
