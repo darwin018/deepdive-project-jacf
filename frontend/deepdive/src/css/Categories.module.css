@@ -86,7 +86,3 @@
     transition: color 0.3s ease;
 }
 
-.card:hover .categoryName {
-    color: #FFA239;
-    /* Petronas Teal */
-}

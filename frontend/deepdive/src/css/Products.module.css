@@ -43,6 +43,7 @@
     border-bottom: 1px solid #E5E7EB;
     vertical-align: middle;
     color: #1F2937;
+    background-color: #F5F5F5;
 }
 
 .productRow:last-child td {
@@ -245,9 +246,8 @@
 
 .cartCloseBtn:hover {
     color: #FF5656;
-    background-color: rgba(239, 68, 68, 0.1);
+    background-color: #F5F5F5;
 }
-
 .cartInfo {
     display: flex;
     align-items: center;
@@ -279,7 +279,7 @@
 }
 
 .productCard {
-    background-color: #1F2937;
+    background-color: #F5F5F5;
     border: 1px solid #E5E7EB;
     border-radius: 12px;
     overflow: hidden;
