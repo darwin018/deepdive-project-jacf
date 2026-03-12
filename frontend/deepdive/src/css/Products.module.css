@@ -167,7 +167,7 @@
     height: 32px;
     border-radius: 50%;
     border: none;
-    background-color: #FFA239;
+    background-color: #fdb96b;
     /* Standard Red */
     color: #000000;
     font-size: 1.2rem;
@@ -179,7 +179,7 @@
 }
 
 .qtyButton:hover {
-    background-color: #E68924;
+    background-color: #ffb35c;
 }
 
 .qtyInput {
@@ -197,7 +197,7 @@
     width: 32px;
     height: 32px;
     border: 1px solid #E5E7EB;
-    background-color: #1F2937;
+    background-color: #E5E7EB;
     border-radius: 50%;
     color: #FF5656;
     display: flex;
