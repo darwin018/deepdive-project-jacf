@@ -231,6 +231,23 @@
     justify-content: space-between;
 }
 
+.cartCloseBtn {
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.2rem 0.5rem;
+    border-radius: 50%;
+    transition: all 0.2s;
+    line-height: 1;
+}
+
+.cartCloseBtn:hover {
+    color: #EF4444;
+    background-color: rgba(239, 68, 68, 0.1);
+}
+
 .cartInfo {
     display: flex;
     align-items: center;

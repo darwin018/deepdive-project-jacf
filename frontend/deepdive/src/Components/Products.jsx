@@ -317,6 +317,7 @@ const Products = () => {
 
             {getTotalItems() > 0 && (
                 <div className={styles.floatingCart}>
+                    <button className={styles.cartCloseBtn} onClick={() => setCart({})}>✕</button>
                     <div className={styles.cartInfo}>
                         <span className={styles.itemCount}>{getTotalItems()} Items</span>
                         <span className={styles.divider}>|</span>
