@@ -7,7 +7,7 @@ class ProductBase(BaseModel):
     quantity: int
     actual_price: float
     offer_price: float
-    category_id: int
+    category_id: Optional[int] = None
 
 class ProductCreate(ProductBase):
     pass

@@ -47,3 +47,26 @@ def run_db_migration(db: Session = Depends(database.get_db)):
         return {"status": "success", "message": "Migrated successfully!"}
     except Exception as e:
         return {"status": "error", "message": str(e)}
+
+@app.get("/debug_products")
+def debug_products(db: Session = Depends(database.get_db)):
+    import traceback
+    try:
+        from .models import product as models_product
+        from .schemas.product import Product as ProductSchema
+        products = db.query(models_product.Product).limit(5).all()
+        result = []
+        for p in products:
+            try:
+                validated = ProductSchema.model_validate(p)
+                result.append({"ok": True, "id": p.id, "data": validated.model_dump()})
+            except Exception as e:
+                result.append({"ok": False, "id": p.id, "error": str(e), "raw": {
+                    "name": repr(p.name), "description": repr(p.description),
+                    "quantity": repr(p.quantity), "actual_price": repr(p.actual_price),
+                    "offer_price": repr(p.offer_price), "category_id": repr(p.category_id),
+                    "image_url": repr(p.image_url)
+                }})
+        return {"status": "debug", "results": result}
+    except Exception as e:
+        return {"status": "error", "message": str(e), "traceback": traceback.format_exc()}
