@@ -66,6 +66,20 @@
     min-height: 100px;
 }
 
+.inputError {
+    border-color: #EF4444;
+}
+
+.inputError:focus {
+    border-color: #EF4444;
+}
+
+.errorText {
+    color: #EF4444;
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+}
+
 .summary {
     background-color: #0B0B0B;
     padding: 1rem;

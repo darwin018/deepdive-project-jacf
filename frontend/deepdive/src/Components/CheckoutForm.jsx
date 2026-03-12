@@ -17,11 +17,51 @@ const CheckoutForm = () => {
         permanentAddress: ''
     });
 
+    const [errors, setErrors] = useState({});
+
     const handleChange = (e) => {
         setFormData({
             ...formData,
             [e.target.name]: e.target.value
         });
+        // Clear error for this field when user types
+        if (errors[e.target.name]) {
+            setErrors(prev => {
+                const updated = { ...prev };
+                delete updated[e.target.name];
+                return updated;
+            });
+        }
+    };
+
+    const validate = () => {
+        const newErrors = {};
+
+        if (!formData.name.trim()) {
+            newErrors.name = 'Name is required';
+        }
+
+        if (!formData.email.trim()) {
+            newErrors.email = 'Email is required';
+        }
+
+        const phone = formData.whatsapp.trim();
+        if (!phone) {
+            newErrors.whatsapp = 'WhatsApp number is required';
+        } else if (!/^\d{10}$/.test(phone)) {
+            newErrors.whatsapp = 'Enter a valid 10-digit mobile number';
+        }
+
+        if (!formData.shippingAddress.trim()) {
+            newErrors.shippingAddress = 'Shipping address is required';
+        }
+
+        if (!formData.permanentAddress.trim()) {
+            newErrors.permanentAddress = 'Permanent address is required';
+        }
+
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
     };
 
     const generatePDF = (orderData, orderId) => {
@@ -39,12 +79,10 @@ const CheckoutForm = () => {
         // Format Date to dd/mm/yyyy
         const today = new Date();
         const dd = String(today.getDate()).padStart(2, '0');
-        const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
         const yyyy = today.getFullYear();
         const formattedDate = `${dd}/${mm}/${yyyy}`;
         
-        // Customer Info (Left Side) & Order Info (Right Side) parallel
-        // Start Y position for this block
         const startY = 40;
         
         doc.setFontSize(14);
@@ -55,14 +93,12 @@ const CheckoutForm = () => {
         doc.text(`WhatsApp: ${orderData.whatsapp_number}`, 14, startY + 20);
         doc.text(`Shipping Address: ${orderData.shipping_address}`, 14, startY + 26);
 
-        // Order ID and Date (Right Side, Parallel to Customer Details)
         doc.setFontSize(12);
         const orderIdText = `Order ID: #${orderId}`;
         const dateText = `Date: ${formattedDate}`;
         doc.text(orderIdText, pageWidth - 14 - doc.getTextWidth(orderIdText), startY + 8);
         doc.text(dateText, pageWidth - 14 - doc.getTextWidth(dateText), startY + 14);
         
-        // Products Table
         const tableColumn = ["Product", "Quantity", "Actual Price", "Offer Price", "Total"];
         const tableRows = [];
         
@@ -90,7 +126,6 @@ const CheckoutForm = () => {
             headStyles: { fillColor: [37, 99, 235] }
         });
         
-        // Totals
         const finalY = doc.lastAutoTable.finalY || 85;
         const actualPriceTotal = orderData.grand_total + orderData.total_savings;
         
@@ -101,7 +136,6 @@ const CheckoutForm = () => {
         const offerTotalText = `Total Amount Saved: Rs. ${orderData.total_savings.toFixed(2)}`;
         doc.text(offerTotalText, pageWidth - 14 - doc.getTextWidth(offerTotalText), finalY + 18);
         
-        // Add a line above grand total for neatness
         doc.setLineWidth(0.5);
         doc.line(pageWidth - 70, finalY + 22, pageWidth - 14, finalY + 22);
 
@@ -115,7 +149,8 @@ const CheckoutForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         
-        // Construct order items
+        if (!validate()) return;
+
         const orderItems = Object.entries(cart).map(([productId, quantity]) => {
             const product = products.find(p => p.id === parseInt(productId));
             return {
@@ -126,11 +161,11 @@ const CheckoutForm = () => {
         });
 
         const orderData = {
-            name: formData.name,
-            customer_email: formData.email,
-            whatsapp_number: formData.whatsapp,
-            shipping_address: formData.shippingAddress,
-            permanent_address: formData.permanentAddress,
+            name: formData.name.trim(),
+            customer_email: formData.email.trim(),
+            whatsapp_number: formData.whatsapp.trim(),
+            shipping_address: formData.shippingAddress.trim(),
+            permanent_address: formData.permanentAddress.trim(),
             total_savings: totalSavings,
             grand_total: grandTotal,
             items: orderItems
@@ -149,7 +184,6 @@ const CheckoutForm = () => {
                 const data = await response.json();
                 console.log('Order created:', data);
                 
-                // Generate and download PDF
                 generatePDF(orderData, data.id);
                 
                 alert('Order Placed Successfully! Your receipt has been downloaded.');
@@ -168,7 +202,7 @@ const CheckoutForm = () => {
         <div className={styles.container}>
             <div className={styles.formWrapper}>
                 <h2 className={styles.title}>Checkout Details</h2>
-                <form onSubmit={handleSubmit} className={styles.form}>
+                <form onSubmit={handleSubmit} className={styles.form} noValidate>
                     <div className={styles.formGroup}>
                         <label htmlFor="name">Name</label>
                         <input
@@ -177,9 +211,9 @@ const CheckoutForm = () => {
                             name="name"
                             value={formData.name}
                             onChange={handleChange}
-                            required
-                            className={styles.input}
+                            className={`${styles.input} ${errors.name ? styles.inputError : ''}`}
                         />
+                        {errors.name && <span className={styles.errorText}>{errors.name}</span>}
                     </div>
                     <div className={styles.formGroup}>
                         <label htmlFor="email">Email Address</label>
@@ -189,9 +223,9 @@ const CheckoutForm = () => {
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
-                            required
-                            className={styles.input}
+                            className={`${styles.input} ${errors.email ? styles.inputError : ''}`}
                         />
+                        {errors.email && <span className={styles.errorText}>{errors.email}</span>}
                     </div>
                     <div className={styles.formGroup}>
                         <label htmlFor="whatsapp">WhatsApp Number</label>
@@ -201,9 +235,11 @@ const CheckoutForm = () => {
                             name="whatsapp"
                             value={formData.whatsapp}
                             onChange={handleChange}
-                            required
-                            className={styles.input}
+                            maxLength={10}
+                            placeholder="10-digit mobile number"
+                            className={`${styles.input} ${errors.whatsapp ? styles.inputError : ''}`}
                         />
+                        {errors.whatsapp && <span className={styles.errorText}>{errors.whatsapp}</span>}
                     </div>
                     <div className={styles.formGroup}>
                         <label htmlFor="shippingAddress">Shipping Address</label>
@@ -212,9 +248,9 @@ const CheckoutForm = () => {
                             name="shippingAddress"
                             value={formData.shippingAddress}
                             onChange={handleChange}
-                            required
-                            className={styles.textarea}
+                            className={`${styles.textarea} ${errors.shippingAddress ? styles.inputError : ''}`}
                         />
+                        {errors.shippingAddress && <span className={styles.errorText}>{errors.shippingAddress}</span>}
                     </div>
                     <div className={styles.formGroup}>
                         <label htmlFor="permanentAddress">Permanent Address</label>
@@ -223,9 +259,9 @@ const CheckoutForm = () => {
                             name="permanentAddress"
                             value={formData.permanentAddress}
                             onChange={handleChange}
-                            required
-                            className={styles.textarea}
+                            className={`${styles.textarea} ${errors.permanentAddress ? styles.inputError : ''}`}
                         />
+                        {errors.permanentAddress && <span className={styles.errorText}>{errors.permanentAddress}</span>}
                     </div>
                     
                     <div className={styles.summary}>
