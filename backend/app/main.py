@@ -43,6 +43,12 @@ def run_db_migration(db: Session = Depends(database.get_db)):
         db.execute(text("ALTER TABLE products ADD COLUMN IF NOT EXISTS image_mime_type VARCHAR"))
         db.execute(text("ALTER TABLE categories ADD COLUMN IF NOT EXISTS image_data BYTEA"))
         db.execute(text("ALTER TABLE categories ADD COLUMN IF NOT EXISTS image_mime_type VARCHAR"))
+        
+        # New order fields
+        db.execute(text("ALTER TABLE orders ADD COLUMN IF NOT EXISTS state VARCHAR"))
+        db.execute(text("ALTER TABLE orders ADD COLUMN IF NOT EXISTS city VARCHAR"))
+        db.execute(text("ALTER TABLE orders ADD COLUMN IF NOT EXISTS pincode VARCHAR"))
+        
         db.commit()
         return {"status": "success", "message": "Migrated successfully!"}
     except Exception as e:

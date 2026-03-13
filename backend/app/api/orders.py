@@ -20,6 +20,9 @@ def create_order(order: schemas_order.OrderCreate, background_tasks: BackgroundT
         name=order.name,
         whatsapp_number=order.whatsapp_number,
         shipping_address=order.shipping_address,
+        state=order.state,
+        city=order.city,
+        pincode=order.pincode,
         permanent_address=order.permanent_address,
         total_savings=order.total_savings,
         grand_total=order.grand_total

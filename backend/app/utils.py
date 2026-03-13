@@ -48,6 +48,7 @@ def generate_order_pdf(order, products_details):
     # Other Customer details
     pdf.cell(0, 6, f"WhatsApp: {order.whatsapp_number}", ln=True)
     pdf.cell(0, 6, f"Shipping Address: {order.shipping_address}", ln=True)
+    pdf.cell(0, 6, f"City: {order.city}, State: {order.state}, Pincode: {order.pincode}", ln=True)
     if hasattr(order, 'permanent_address') and order.permanent_address:
         pdf.cell(0, 6, f"Permanent Address: {order.permanent_address}", ln=True)
         

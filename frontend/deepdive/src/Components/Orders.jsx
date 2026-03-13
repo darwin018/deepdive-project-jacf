@@ -199,6 +199,9 @@ const Orders = () => {
                                 <p><strong>Email:</strong> {selectedOrder.customer_email}</p>
                                 <p><strong>WhatsApp:</strong> {selectedOrder.whatsapp_number}</p>
                                 <p><strong>Shipping Address:</strong> {selectedOrder.shipping_address}</p>
+                                <p><strong>City:</strong> {selectedOrder.city}</p>
+                                <p><strong>State:</strong> {selectedOrder.state}</p>
+                                <p><strong>Pincode:</strong> {selectedOrder.pincode}</p>
                                 <p><strong>Permanent Address:</strong> {selectedOrder.permanent_address}</p>
                             </div>
                             
