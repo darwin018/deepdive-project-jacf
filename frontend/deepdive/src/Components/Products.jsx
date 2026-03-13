@@ -92,12 +92,17 @@ const Products = () => {
                 return { ...prev, [productId]: newQty };
             });
         } else {
-            // Update input quantity
-            setInputQuantities(prev => {
-                const currentQty = prev[productId] || 0;
-                const newQty = Math.max(0, currentQty + change);
-                return { ...prev, [productId]: newQty };
-            });
+            if (change > 0) {
+                // When clicking + and not in cart, add to cart with quantity 1
+                setCart(prev => ({ ...prev, [productId]: 1 }));
+            } else {
+                // Update input quantity for - button if not in cart
+                setInputQuantities(prev => {
+                    const currentQty = prev[productId] || 0;
+                    const newQty = Math.max(0, currentQty + change);
+                    return { ...prev, [productId]: newQty };
+                });
+            }
         }
     };
 
