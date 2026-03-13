@@ -24,6 +24,9 @@ class OrderBase(BaseModel):
     name: str
     whatsapp_number: str
     shipping_address: str
+    state: str
+    city: str
+    pincode: str
     permanent_address: str
     total_savings: float
     grand_total: float

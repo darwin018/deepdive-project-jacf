@@ -14,6 +14,9 @@ const CheckoutForm = () => {
         whatsapp: '',
         email: '',
         shippingAddress: '',
+        state: '',
+        city: '',
+        pincode: '',
         permanentAddress: ''
     });
 
@@ -56,6 +59,20 @@ const CheckoutForm = () => {
             newErrors.shippingAddress = 'Shipping address is required';
         }
 
+        if (!formData.state.trim()) {
+            newErrors.state = 'State is required';
+        }
+
+        if (!formData.city.trim()) {
+            newErrors.city = 'City is required';
+        }
+
+        if (!formData.pincode.trim()) {
+            newErrors.pincode = 'Pincode is required';
+        } else if (!/^\d{6}$/.test(formData.pincode.trim())) {
+            newErrors.pincode = 'Enter a valid 6-digit pincode';
+        }
+
         if (!formData.permanentAddress.trim()) {
             newErrors.permanentAddress = 'Permanent address is required';
         }
@@ -92,6 +109,7 @@ const CheckoutForm = () => {
         doc.text(`Email: ${orderData.customer_email}`, 14, startY + 14);
         doc.text(`WhatsApp: ${orderData.whatsapp_number}`, 14, startY + 20);
         doc.text(`Shipping Address: ${orderData.shipping_address}`, 14, startY + 26);
+        doc.text(`City: ${orderData.city}, State: ${orderData.state}, Pincode: ${orderData.pincode}`, 14, startY + 32);
 
         doc.setFontSize(12);
         const orderIdText = `Order ID: #${orderId}`;
@@ -119,7 +137,7 @@ const CheckoutForm = () => {
         });
         
         autoTable(doc, {
-            startY: 85,
+            startY: 90,
             head: [tableColumn],
             body: tableRows,
             theme: 'striped',
@@ -165,6 +183,9 @@ const CheckoutForm = () => {
             customer_email: formData.email.trim(),
             whatsapp_number: formData.whatsapp.trim(),
             shipping_address: formData.shippingAddress.trim(),
+            state: formData.state.trim(),
+            city: formData.city.trim(),
+            pincode: formData.pincode.trim(),
             permanent_address: formData.permanentAddress.trim(),
             total_savings: totalSavings,
             grand_total: grandTotal,
@@ -251,6 +272,43 @@ const CheckoutForm = () => {
                             className={`${styles.textarea} ${errors.shippingAddress ? styles.inputError : ''}`}
                         />
                         {errors.shippingAddress && <span className={styles.errorText}>{errors.shippingAddress}</span>}
+                    </div>
+                    <div className={styles.formGroup}>
+                        <label htmlFor="city">City</label>
+                        <input
+                            type="text"
+                            id="city"
+                            name="city"
+                            value={formData.city}
+                            onChange={handleChange}
+                            className={`${styles.input} ${errors.city ? styles.inputError : ''}`}
+                        />
+                        {errors.city && <span className={styles.errorText}>{errors.city}</span>}
+                    </div>
+                    <div className={styles.formGroup}>
+                        <label htmlFor="state">State</label>
+                        <input
+                            type="text"
+                            id="state"
+                            name="state"
+                            value={formData.state}
+                            onChange={handleChange}
+                            className={`${styles.input} ${errors.state ? styles.inputError : ''}`}
+                        />
+                        {errors.state && <span className={styles.errorText}>{errors.state}</span>}
+                    </div>
+                    <div className={styles.formGroup}>
+                        <label htmlFor="pincode">Pincode</label>
+                        <input
+                            type="text"
+                            id="pincode"
+                            name="pincode"
+                            value={formData.pincode}
+                            onChange={handleChange}
+                            maxLength={6}
+                            className={`${styles.input} ${errors.pincode ? styles.inputError : ''}`}
+                        />
+                        {errors.pincode && <span className={styles.errorText}>{errors.pincode}</span>}
                     </div>
                     <div className={styles.formGroup}>
                         <label htmlFor="permanentAddress">Permanent Address</label>
